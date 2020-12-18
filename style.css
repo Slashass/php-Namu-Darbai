@@ -1,0 +1,43 @@
+html {
+    background: rgb(228, 228, 228);
+    color: rgb(29, 28, 28);
+    word-break: break-all;
+}
+
+.square>span {
+    margin: 5px;
+}
+
+.kvdr {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+}
+
+.flx {
+    word-break: keep-all;
+    margin: 5px;
+    border: solid 1px black;
+    display: flex;
+    background: brown;
+}
+
+.flx:first-child {
+    flex-wrap: wrap;
+}
+
+
+/* html {
+    background: rgb(177, 176, 176);
+    color: rgb(29, 28, 28);
+    word-break: break-all;
+}
+.square>span {
+    margin: 5px;
+}
+.flx {
+    word-break: keep-all;
+    margin: 5px;
+    border: solid 1px black;
+    display: inline-flex;
+} */
