@@ -50,6 +50,8 @@ for ($i = 0; $i < strlen($str); $i++) {
     }
 }
 
+// preg_replace_callback('/\d+/', 'h1CallBack', $string);
+
 /*
 4.Parašykite funkciją, kuri skaičiuotų, iš kiek sveikų skaičių jos argumentas dalijasi be liekanos 
 (išskyrus vienetą ir patį save) Argumentą užrašykite taip, kad būtų galima įvesti tik sveiką skaičių;

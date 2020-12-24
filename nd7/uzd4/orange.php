@@ -17,7 +17,9 @@ Pademonstruokite veikimą. -->
         background: orange;
     }
 </style>
-Po 5 sec busite nukreipti i orange.php
+Jus nukreipti i orange.php
 <?php
 
-header('refresh:5;url=orange.php');
+header('url=orange.php');
+
+?>
