@@ -19,7 +19,7 @@ if (isset($_POST['sodinti'])) {
 }
 // isrovimo scenarijus 
 if (isset($_POST['israuti'])) {
-    foreach ($_SESSION['a'] as $index => $agurkas) {
+    foreach ($_SESSION['a'] as $index => &$agurkas) {
         if ($_POST['israuti'] == $agurkas['id']) {
             unset($_SESSION['a'][$index]);
             header('Location: http://localhost/1stlesson/folder/agurkai/sodinimas.php');
