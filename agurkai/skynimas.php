@@ -7,26 +7,37 @@ if (!isset($_SESSION['a'])) {
     $_SESSION['a'] = [];
     $_SESSION['agurku ID'] =  0;
 }
-// skinti kazkoki kieki 
+// skinti kazkoki kieki irasius
 if (isset($_POST['skinti'])) {
     foreach ($_SESSION['a'] as $index => &$agurkas) {
-        if ($_POST['skinti'] == $agurkas['agurkai']) {
-            unset($_SESSION['a'][$agurkas['agurkai']]);
-            header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
-            exit;
+        if ($_POST['kiek'][$agurkas['id']] <= $agurkas['agurkai']) {
+            $agurkas['agurkai'] -= $_POST['kiek'][$agurkas['id']];
         }
     }
+    header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
+    exit;
 }
-// skinti visus
+// skinti visus 
 if (isset($_POST['skinti-visus'])) {
-    foreach ($_SESSION['a'] as $index => &$agurkas) {
+    foreach ($_SESSION['a'] as &$agurkas) {
         if ($_POST['skinti-visus'] == $agurkas['id']) {
-            unset($_SESSION['a'][$agurkas['agurkai']]);
-            header('Location: http://localhost/1stlesson/folder/agurkai/sodinimas.php');
-            exit;
+            $agurkas['agurkai'] = 0;
         }
     }
+    header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
+    exit;
 }
+// nuimti visa derliu
+if (isset($_POST['nuskinti-viska'])) {
+    foreach ($_SESSION['a'] as &$agurkas) {
+        if ($_POST['kiek'][$agurkas['id']] <= $agurkas['agurkai']) {
+            $agurkas['agurkai'] = 0;
+        }
+    }
+    header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
+    exit;
+}
+
 ?>
 
 
@@ -38,6 +49,11 @@ if (isset($_POST['skinti-visus'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skynimas</title>
 </head>
+<style>
+    img {
+        height: 60px;
+    }
+</style>
 
 <body>
     <h1>Agurku sodas </h1>
@@ -49,11 +65,12 @@ if (isset($_POST['skinti-visus'])) {
         <?php foreach ($_SESSION['a'] as $agurkas) : ?>
 
             <div>
+                <img src="./img/cuc-<?= $agurkas['img-path'] ?>.jpg" alt="Agurko nuotrauka">
                 Agurkas nr. <?= $agurkas['id'] ?>
                 Galima skinti: <?= $agurkas['agurkai'] ?>
-                <input type="text" name="<?= $agurkas['agurkai'] ?>" placeholder="kiekis">
+                <input type="text" name="kiek[<?= $agurkas['id'] ?>]" value=<?= $skynimas ?? 0 ?>>
                 <button type="submit" name="skinti">SKINTI</button>
-                <button type="submit" name="skinti-visus">SKINTI VISUS</button>
+                <button type="submit" name="skinti-visus" value="<?= $agurkas['id'] ?>">SKINTI VISUS</button>
 
             </div>
 

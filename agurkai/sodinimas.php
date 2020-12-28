@@ -38,14 +38,23 @@ if (isset($_POST['israuti'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sodinimas</title>
 </head>
+<style>
+    img {
+        height: 60px;
+    }
+</style>
 
 <body>
     <h1>Agurku sodas </h1>
     <h2>Sodinimas </h2>
+    <a href="sodinimas.php">Sodinimas</a>
+    <a href="auginimas.php">Auginimas</a>
+    <a href="skynimas.php">Skynimas</a>
     <form action="" method="post">
         <?php foreach ($_SESSION['a'] as $agurkas) : ?>
 
             <div>
+                <img src="./img/cuc1.jpg" alt="Agurko nuotrauka">
                 Agurkas nr. <?= $agurkas['id'] ?>
                 Agurku: <?= $agurkas['agurkai'] ?>
                 <button type="submit" name="israuti" value="<?= $agurkas['id'] ?>">ISRAUTI</button>
