@@ -7,6 +7,9 @@ if (!isset($_SESSION['a'])) {
     $_SESSION['agurku ID'] =  0;
 }
 
+_d($_SESSION, 'SESIJA');
+_dc($_SESSION);
+
 // sodinimo scenarijus kas vyksta  sodinimo metu
 if (isset($_POST['sodinti'])) {
 
@@ -19,7 +22,7 @@ if (isset($_POST['sodinti'])) {
             $_SESSION['err'] = 2; // <-- per daug
         }
 
-        header('Location: http://localhost/bla/agurkai/sodinimas.php');
+        header('Location: http://localhost/1stlesson/folder/agurkai/sodinimas.php');
         exit;
     }
 
@@ -31,7 +34,7 @@ if (isset($_POST['sodinti'])) {
     }
 
 
-    header('Location: http://localhost/bla/agurkai/sodinimas.php');
+    header('Location: http://localhost/1stlesson/folder/agurkai/sodinimas.php');
     exit;
 }
 // isrovimo scenarijus 
