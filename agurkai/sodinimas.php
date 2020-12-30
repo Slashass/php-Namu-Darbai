@@ -10,11 +10,28 @@ if (!isset($_SESSION['a'])) {
 // sodinimo scenarijus kas vyksta  sodinimo metu
 if (isset($_POST['sodinti'])) {
 
-    $_SESSION['a'][] = [
-        'id' => ++$_SESSION['agurku ID'],
-        'agurkai' => 0
-    ];
-    header('Location: http://localhost/1stlesson/folder/agurkai/sodinimas.php');
+    $kiekis = (int) $_POST['kiekis'];
+
+    if (0 > $kiekis || 4 < $kiekis) { // <--- validacija
+        if (0 > $kiekis) {
+            $_SESSION['err'] = 1; // <-- neigiamas agurku kiekis
+        } elseif (4 < $kiekis) {
+            $_SESSION['err'] = 2; // <-- per daug
+        }
+
+        header('Location: http://localhost/bla/agurkai/sodinimas.php');
+        exit;
+    }
+
+    foreach (range(1, $kiekis) as $_) {
+        $_SESSION['a'][] = [
+            'id' => ++$_SESSION['agurku ID'],
+            'agurkai' => 0
+        ];
+    }
+
+
+    header('Location: http://localhost/bla/agurkai/sodinimas.php');
     exit;
 }
 // isrovimo scenarijus 
@@ -27,6 +44,7 @@ if (isset($_POST['israuti'])) {
         }
     }
 }
+
 ?>
 
 
@@ -50,6 +68,7 @@ if (isset($_POST['israuti'])) {
     <a href="sodinimas.php">Sodinimas</a>
     <a href="auginimas.php">Auginimas</a>
     <a href="skynimas.php">Skynimas</a>
+    <?php include __DIR__ . '/error.php' ?>
     <form action="" method="post">
         <?php foreach ($_SESSION['a'] as $agurkas) : ?>
 
