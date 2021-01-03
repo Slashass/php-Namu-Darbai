@@ -9,9 +9,19 @@ btn.addEventListener("click", function () {
     ourRequest.open('GET', 'https://learnwebcode.github.io/json-example/animals-' + pageCounter + '.json');
     // persiuncia info per JSON filtra
     ourRequest.onload = function () {
-        var ourData = JSON.parse(ourRequest.responseText);
-        renderHTML(ourData);
+        // ERRORS tikrinimas del status 
+        if (ourRequest.status >= 200 && ourRequest.status < 400) {
+            var ourData = JSON.parse(ourRequest.responseText);
+            renderHTML(ourData);
+        } else {
+            console.log("We connected to the server, but it returned an error.");
+        }
     };
+    // ERRORS
+    ourRequest.onerror = function () {
+        console.log("Connection error");
+    }
+
     // siuncia ka turim gaut
     ourRequest.send();
     // naudo 3 puslapius max nes trys skitringi JSON
