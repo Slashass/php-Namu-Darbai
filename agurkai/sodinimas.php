@@ -2,10 +2,11 @@
 // saugo sesijoje
 session_start();
 
-if (!isset($_SESSION['a'])) {
-    $_SESSION['a'] = [];
-    $_SESSION['agurku ID'] =  0;
-}
+// pradinis masyvas ir ID nustatymas
+// if (!isset($_SESSION['a'])) {
+//     $_SESSION['a'] = [];
+//     $_SESSION['agurku ID'] =  0;
+// }
 
 include __DIR__ . '/Agurkai.php';
 

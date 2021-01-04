@@ -3,10 +3,10 @@
 session_start();
 
 // pradinis masyvas ir ID nustatymas
-if (!isset($_SESSION['a'])) {
-    $_SESSION['a'] = [];
-    $_SESSION['agurku ID'] =  0;
-}
+// if (!isset($_SESSION['a'])) {
+//     $_SESSION['a'] = [];
+//     $_SESSION['agurku ID'] =  0;
+// }
 
 include __DIR__ . '/Agurkai.php';
 

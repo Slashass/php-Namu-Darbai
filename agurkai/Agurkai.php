@@ -5,7 +5,7 @@ class Agurkai
     public $agurkas = 0;
     public $id = 0;
 
-    public function agurkuSodinimas()
+    final public function agurkuSodinimas()
     {
         // sodinimo scenarijus kas vyksta  sodinimo metu
         if (isset($_POST['sodinti'])) {
@@ -46,7 +46,7 @@ class Agurkai
         }
     }
 
-    public function agurguAuginimas()
+    final public function agurguAuginimas()
     {
         // auginimo scenarijus
         if (isset($_POST['auginti'])) {
@@ -59,7 +59,7 @@ class Agurkai
         }
     }
 
-    public function agurkuSkynimas()
+    final public function agurkuSkynimas()
     {
         // skinti kazkoki kieki irasius
         if (isset($_POST['skinti'])) {
