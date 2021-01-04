@@ -64,12 +64,9 @@ $agurkas->agurkuSodinimas();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sodinimas</title>
+    <link rel="stylesheet" href="main.css">
 </head>
-<style>
-    img {
-        height: 60px;
-    }
-</style>
+
 
 <body>
     <h1>Agurku sodas </h1>

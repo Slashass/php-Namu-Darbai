@@ -55,12 +55,8 @@ $agurkas->agurkuSkynimas();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skynimas</title>
+    <link rel="stylesheet" href="main.css">
 </head>
-<style>
-    img {
-        height: 60px;
-    }
-</style>
 
 <body>
     <h1>Agurku sodas </h1>
@@ -72,7 +68,7 @@ $agurkas->agurkuSkynimas();
         <?php foreach ($_SESSION['a'] as $agurkas) : ?>
 
             <div>
-                <img src="./img/cuc-<?= $agurkas['img-path'] ?>.jpg" alt="Agurko nuotrauka">
+                <img src="./img/cuc1.jpg" alt="Agurko nuotrauka">
                 Agurkas nr. <?= $agurkas['id'] ?>
                 Galima skinti: <?= $agurkas['agurkai'] ?>
                 <input type="text" name="kiek[<?= $agurkas['id'] ?>]" value=<?= $skynimas ?? 0 ?>>
