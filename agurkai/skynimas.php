@@ -7,36 +7,43 @@ if (!isset($_SESSION['a'])) {
     $_SESSION['a'] = [];
     $_SESSION['agurku ID'] =  0;
 }
-// skinti kazkoki kieki irasius
-if (isset($_POST['skinti'])) {
-    foreach ($_SESSION['a'] as $index => &$agurkas) {
-        if ($_POST['kiek'][$agurkas['id']] <= $agurkas['agurkai']) {
-            $agurkas['agurkai'] -= $_POST['kiek'][$agurkas['id']];
-        }
-    }
-    header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
-    exit;
-}
-// skinti visus 
-if (isset($_POST['skinti-visus'])) {
-    foreach ($_SESSION['a'] as &$agurkas) {
-        if ($_POST['skinti-visus'] == $agurkas['id']) {
-            $agurkas['agurkai'] = 0;
-        }
-    }
-    header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
-    exit;
-}
-// nuimti visa derliu
-if (isset($_POST['nuskinti-viska'])) {
-    foreach ($_SESSION['a'] as &$agurkas) {
-        if ($_POST['kiek'][$agurkas['id']] <= $agurkas['agurkai']) {
-            $agurkas['agurkai'] = 0;
-        }
-    }
-    header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
-    exit;
-}
+
+include __DIR__ . '/Agurkai.php';
+
+$agurkas = new Agurkai;
+
+$agurkas->agurkuSkynimas();
+
+// // skinti kazkoki kieki irasius
+// if (isset($_POST['skinti'])) {
+//     foreach ($_SESSION['a'] as $index => &$agurkas) {
+//         if ($_POST['kiek'][$agurkas['id']] <= $agurkas['agurkai']) {
+//             $agurkas['agurkai'] -= $_POST['kiek'][$agurkas['id']];
+//         }
+//     }
+//     header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
+//     exit;
+// }
+// // skinti visus 
+// if (isset($_POST['skinti-visus'])) {
+//     foreach ($_SESSION['a'] as &$agurkas) {
+//         if ($_POST['skinti-visus'] == $agurkas['id']) {
+//             $agurkas['agurkai'] = 0;
+//         }
+//     }
+//     header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
+//     exit;
+// }
+// // nuimti visa derliu
+// if (isset($_POST['nuskinti-viska'])) {
+//     foreach ($_SESSION['a'] as &$agurkas) {
+//         if ($_POST['kiek'][$agurkas['id']] <= $agurkas['agurkai']) {
+//             $agurkas['agurkai'] = 0;
+//         }
+//     }
+//     header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
+//     exit;
+// }
 
 ?>
 

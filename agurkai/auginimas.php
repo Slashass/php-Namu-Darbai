@@ -2,20 +2,26 @@
 // saugo sesijoje
 session_start();
 
-if (!isset($_SESSION['a'])) {
-    $_SESSION['a'] = [];
-    $_SESSION['agurku ID'] =  0;
-}
+// if (!isset($_SESSION['a'])) {
+//     // $_SESSION['a'] = [];
+//     // $_SESSION['agurku ID'] =  0;
+// }
 
-// auginimo scenarijus
-if (isset($_POST['auginti'])) {
+include __DIR__ . '/Agurkai.php';
 
-    foreach ($_SESSION['a'] as $index => &$agurkas) {
-        $agurkas['agurkai'] += $_POST['kiekis'][$agurkas['id']];
-    }
-    header('Location: http://localhost/1stlesson/folder/agurkai/auginimas.php');
-    exit;
-}
+$agurkas = new Agurkai;
+
+$agurkas->agurguAuginimas();
+
+// // auginimo scenarijus
+// if (isset($_POST['auginti'])) {
+
+//     foreach ($_SESSION['a'] as $index => &$agurkas) {
+//         $agurkas['agurkai'] += $_POST['kiekis'][$agurkas['id']];
+//     }
+//     header('Location: http://localhost/1stlesson/folder/agurkai/auginimas.php');
+//     exit;
+// }
 
 ?>
 

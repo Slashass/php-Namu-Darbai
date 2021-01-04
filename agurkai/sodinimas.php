@@ -7,46 +7,52 @@ if (!isset($_SESSION['a'])) {
     $_SESSION['agurku ID'] =  0;
 }
 
-_d($_SESSION, 'SESIJA');
-_dc($_SESSION);
+include __DIR__ . '/Agurkai.php';
+
+$agurkas = new Agurkai;
+
+$agurkas->agurkuSodinimas();
+
+// _d($_SESSION, 'SESIJA');
+// _dc($_SESSION);
 
 // sodinimo scenarijus kas vyksta  sodinimo metu
-if (isset($_POST['sodinti'])) {
+// if (isset($_POST['sodinti'])) {
 
-    $kiekis = (int) $_POST['kiekis'];
+//     $kiekis = (int) $_POST['kiekis'];
 
-    if (0 > $kiekis || 4 < $kiekis) { // <--- validacija
-        if (0 > $kiekis) {
-            $_SESSION['err'] = 1; // <-- neigiamas agurku kiekis
-        } elseif (4 < $kiekis) {
-            $_SESSION['err'] = 2; // <-- per daug
-        }
+//     if (0 > $kiekis || 4 < $kiekis) { // <--- validacija
+//         if (0 > $kiekis) {
+//             $_SESSION['err'] = 1; // <-- neigiamas agurku kiekis
+//         } elseif (4 < $kiekis) {
+//             $_SESSION['err'] = 2; // <-- per daug
+//         }
 
-        header('Location: http://localhost/1stlesson/folder/agurkai/sodinimas.php');
-        exit;
-    }
+//         header('Location: http://localhost/1stlesson/folder/agurkai/sodinimas.php');
+//         exit;
+//     }
 
-    foreach (range(1, $kiekis) as $_) {
-        $_SESSION['a'][] = [
-            'id' => ++$_SESSION['agurku ID'],
-            'agurkai' => 0
-        ];
-    }
+//     foreach (range(1, $kiekis) as $_) {
+//         $_SESSION['a'][] = [
+//             'id' => ++$_SESSION['agurku ID'],
+//             'agurkai' => 0
+//         ];
+// }
 
 
-    header('Location: http://localhost/1stlesson/folder/agurkai/sodinimas.php');
-    exit;
-}
+//     header('Location: http://localhost/1stlesson/folder/agurkai/sodinimas.php');
+//     exit;
+// }
 // isrovimo scenarijus 
-if (isset($_POST['israuti'])) {
-    foreach ($_SESSION['a'] as $index => &$agurkas) {
-        if ($_POST['israuti'] == $agurkas['id']) {
-            unset($_SESSION['a'][$index]);
-            header('Location: http://localhost/1stlesson/folder/agurkai/sodinimas.php');
-            exit;
-        }
-    }
-}
+// if (isset($_POST['israuti'])) {
+//     foreach ($_SESSION['a'] as $index => &$agurkas) {
+//         if ($_POST['israuti'] == $agurkas['id']) {
+//             unset($_SESSION['a'][$index]);
+//             header('Location: http://localhost/1stlesson/folder/agurkai/sodinimas.php');
+//             exit;
+//         }
+//     }
+// }
 
 ?>
 
