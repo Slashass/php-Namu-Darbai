@@ -23,7 +23,7 @@ class Agurkai
                 exit;
             }
 
-            foreach (range(1, $kiekis) as $_) {
+            foreach (range(1, $kiekis) as &$agurkas) {
                 $_SESSION['a'][] = [
                     'id' => ++$_SESSION['agurku ID'],
                     'agurkai' => 0
