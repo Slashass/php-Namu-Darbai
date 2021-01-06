@@ -3,47 +3,45 @@
 session_start();
 
 // pradinis masyvas ir ID nustatymas
-// if (!isset($_SESSION['a'])) {
-//     $_SESSION['a'] = [];
-//     $_SESSION['agurku ID'] =  0;
-// }
+if (!isset($_SESSION['a'])) {
+    $_SESSION['obj'] = [];
+    $_SESSION['agurku ID'] =  0;
+}
 
-include __DIR__ . '/Agurkai.php';
+include __DIR__ . '/Agurkas.php';
 
-$agurkas = new Agurkai;
 
-$agurkas->agurkuSkynimas();
+// skinti kazkoki kieki irasius
+if (isset($_POST['skinti'])) {
+    foreach ($_SESSION['obj'] as $index => &$agurkas) {
+        if ($_POST['kiek'][$agurkas->id] <= $agurkas->count) {
+            $agurkas->count -= $_POST['kiek'][$agurkas->id];
+        }
+    }
+    header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
+    exit;
+}
+// skinti visus 
+if (isset($_POST['skinti-visus'])) {
+    foreach ($_SESSION['obj'] as &$agurkas) {
+        if ($_POST['skinti-visus'] == $agurkas->id) {
+            $agurkas->count = 0;
+        }
+    }
+    header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
+    exit;
+}
 
-// // skinti kazkoki kieki irasius
-// if (isset($_POST['skinti'])) {
-//     foreach ($_SESSION['a'] as $index => &$agurkas) {
-//         if ($_POST['kiek'][$agurkas['id']] <= $agurkas['agurkai']) {
-//             $agurkas['agurkai'] -= $_POST['kiek'][$agurkas['id']];
-//         }
-//     }
-//     header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
-//     exit;
-// }
-// // skinti visus 
-// if (isset($_POST['skinti-visus'])) {
-//     foreach ($_SESSION['a'] as &$agurkas) {
-//         if ($_POST['skinti-visus'] == $agurkas['id']) {
-//             $agurkas['agurkai'] = 0;
-//         }
-//     }
-//     header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
-//     exit;
-// }
-// // nuimti visa derliu
-// if (isset($_POST['nuskinti-viska'])) {
-//     foreach ($_SESSION['a'] as &$agurkas) {
-//         if ($_POST['kiek'][$agurkas['id']] <= $agurkas['agurkai']) {
-//             $agurkas['agurkai'] = 0;
-//         }
-//     }
-//     header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
-//     exit;
-// }
+// nuimti visa derliu
+if (isset($_POST['nuskinti-viska'])) {
+    foreach ($_SESSION['obj'] as &$agurkas) {
+        if ($_POST['kiek'][$agurkas->id] <= $agurkas->count) {
+            $agurkas->count = 0;
+        }
+    }
+    header('Location: http://localhost/1stlesson/folder/agurkai/skynimas.php');
+    exit;
+}
 
 ?>
 
@@ -65,15 +63,15 @@ $agurkas->agurkuSkynimas();
     <a href="auginimas.php">Auginimas</a>
     <a href="skynimas.php">Skynimas</a>
     <form action="" method="post">
-        <?php foreach ($_SESSION['a'] as $agurkas) : ?>
-
+        <?php foreach ($_SESSION['obj'] as $agurkas) : ?>
+            <?php $agurkas = unserialize($agurkas) ?>
             <div>
                 <img src="./img/cuc1.jpg" alt="Agurko nuotrauka">
-                Agurkas nr. <?= $agurkas['id'] ?>
-                Galima skinti: <?= $agurkas['agurkai'] ?>
-                <input type="text" name="kiek[<?= $agurkas['id'] ?>]" value=<?= $skynimas ?? 0 ?>>
+                Agurkas nr. <?= $agurkas->id ?>
+                Galima skinti: <?= $agurkas->count ?>
+                <input type="text" name="kiek[<?= $agurkas->id ?>]" value=<?= $skynimas ?? 0 ?>>
                 <button type="submit" name="skinti">SKINTI</button>
-                <button type="submit" name="skinti-visus" value="<?= $agurkas['id'] ?>">SKINTI VISUS</button>
+                <button type="submit" name="skinti-visus" value="<?= $agurkas->id ?>">SKINTI VISUS</button>
 
             </div>
 
