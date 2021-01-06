@@ -1,13 +1,25 @@
 body {
+    border: 1px solid black;
     text-align: center;
-    width: 90%;
-    overflow: hidden;
+    position: relative;
+    width: 70%;
+    height: 870px;
     overflow-y: hidden; /* Hide vertical scrollbar */
-    overflow-x: hidden; /* Hide horizontal scrollbar */
+    justify-content: center;
 }
-
+.items {
+    padding: 10px;
+}
+.items > h2 {
+    display: inline;
+    float: left;
+}
+p {
+}
 img {
+    float: left;
     height: 60px;
+    width: 60px;
 }
 
 h1 {
@@ -53,4 +65,10 @@ button {
 
 button:hover {
     background-color: #034F66;
+}
+button > .sodinti-agurka {
+    position: absolute;
+}
+button > .sodinti-paprika {
+    position: absolute;
 }
