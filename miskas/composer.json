@@ -1,0 +1,16 @@
+{
+    "name": "cmazv/miskas",
+    "description": "Bla bla",
+    "license": "MIT",
+    "require": {
+        "ramsey/uuid": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mano\\": "/inc/Mano",
+            "Valio\\": "inc",
+            "Petras\\Zzz\\": "inc/Petras/Zzz",
+            "Eglynas\\": "inc"
+        }
+    }
+}

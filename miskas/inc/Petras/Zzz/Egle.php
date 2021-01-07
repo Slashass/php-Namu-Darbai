@@ -1,8 +1,14 @@
 <?php
 
-class Egle extends Vovere
-{
+namespace Petras\Zzz;
 
+
+use Mano\Vovere as ManoGraziVovere;
+use Petras\Zzz\Vovere as PetroLevaVovere;
+
+
+class Egle extends PetroLevaVovere
+{
 
     public function __construct()
     {

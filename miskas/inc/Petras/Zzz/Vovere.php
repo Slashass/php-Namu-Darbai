@@ -1,13 +1,19 @@
 <?php
 
+namespace Petras\Zzz;
+
+use Valio\Miskas;
+
 class Vovere extends Miskas
 {
 
-    public $name = 'Vovere';
+    public $name = 'Petro Vovere';
 
     private $type = 'Graužiklis';
 
     protected $voice = 'Skviki-skviki';
+
+    public static $vovere = 'Leva Petro vovere';
 
 
     // public static $title = 'Voveres giria';

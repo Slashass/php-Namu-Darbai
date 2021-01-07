@@ -1,5 +1,9 @@
 <?php
 
+namespace Valio;
+
+use Ramsey\Uuid\Uuid;
+
 class Miskas
 {
 
@@ -12,6 +16,24 @@ class Miskas
     public function __construct()
     {
         echo '<h3>MISKO CONSTRUCT</h3>';
+        echo Uuid::uuid4();
+    }
+
+    public function __destruct()
+    {
+        echo '<h3>MISKO DESTRUCT</h3>';
+    }
+
+    public static function __callStatic($name, $val)
+    {
+        echo "<h3>MISKO CALL: $name</h3>";
+        print_r($val);
+    }
+
+
+    public function __invoke($arg)
+    {
+        print_r($arg);
     }
 
     public function makeNoise()
