@@ -8,7 +8,7 @@ class Paprika extends Darzove
     {
         $this->id = $id + 1;
         $this->imgPath = rand(1, 6);
-        $this->kiekis = 0;
+        $this->count = 0;
     }
 
     public function __get($propertyName)
