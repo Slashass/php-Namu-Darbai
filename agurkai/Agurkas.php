@@ -1,5 +1,9 @@
 <?php
 
+// namespace Cucumber;
+
+// use Veggies\Darzove;
+
 class Agurkas extends Darzove
 {
 
@@ -9,7 +13,7 @@ class Agurkas extends Darzove
     public function __construct($id)
     {
         $this->id = $id + 1;
-        $this->imgPath = rand(1, 3);
+        $this->imgPath = rand(1, 6);
         $this->count = 0;
 
         // $agurkoObj->id = $_SESSION['agurku ID'] + 1;

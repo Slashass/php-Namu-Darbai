@@ -22,6 +22,7 @@ if (isset($_POST['nuskinti-viska'])) {
     App::redirect('skynimas');
 }
 
+
 ?>
 
 
