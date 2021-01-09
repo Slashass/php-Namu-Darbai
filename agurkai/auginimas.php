@@ -37,7 +37,7 @@ if (isset($_POST['auginti'])) {
                 <div class="items">
                     <img src="img/cuc-<?= $darzove->imgPath ?>.jpg" alt="Agurko nuotrauka">
                     <h2>Agurkas Nr. :<?= $darzove->id ?></h2>
-                    <p class="kiek-augs"> +<?= $kiekis = $darzove->kiekAugti() ?></p>
+                    <p> +<?= $kiekis = $darzove->kiekAugti() ?></p>
                     <input type="hidden" name="kiekis[<?= $darzove->id ?>]" value="<?= $kiekis ?>">
                     <p>Agurku: <?= $darzove->count ?></p>
                 </div>
@@ -45,7 +45,7 @@ if (isset($_POST['auginti'])) {
                 <div class="items">
                     <img src="img/paprika-<?= $darzove->imgPath ?>.jpg" alt="Agurko nuotrauka">
                     <h2>Paprika Nr. :<?= $darzove->id ?></h2>
-                    <p class="kiek-augs"> +<?= $kiekis = $darzove->kiekAugti() ?></p>
+                    <p> +<?= $kiekis = $darzove->kiekAugti() ?></p>
                     <input type="hidden" name="kiekis[<?= $darzove->id ?>]" value="<?= $kiekis ?>">
                     <p> Papriku: <?= $darzove->count ?></p>
                 </div>

@@ -53,14 +53,14 @@ if (isset($_POST['israuti'])) {
                     <img src="img/cuc-<?= $darzove->imgPath ?>.jpg" alt="Agurko nuotrauka">
                     <h2>Agurkas nr. :<?= $darzove->id ?></h2>
                     <p>Agurku: <?= $darzove->count ?></p>
-                    <button style="float: right;" type="submit" name="israuti" value="<?= $darzove->id ?>">ISRAUTI</button>
+                    <button class="isrovimoMyg" type="submit" name="israuti" value="<?= $darzove->id ?>">ISRAUTI</button>
                 </div>
             <?php else : ?>
                 <div class="items">
                     <img src="img/paprika-<?= $darzove->imgPath ?>.jpg" alt="Paprikos nuotrauka">
                     <h2>Paprikos nr. :<?= $darzove->id ?></h2>
                     <p>Papriku: <?= $darzove->count ?></p>
-                    <button style="float: right;" type="submit" name="israuti" value="<?= $darzove->id ?>">ISRAUTI</button>
+                    <button class="isrovimoMyg" type="submit" name="israuti" value="<?= $darzove->id ?>">ISRAUTI</button>
                 </div>
             <?php endif ?>
         <?php endforeach ?>
