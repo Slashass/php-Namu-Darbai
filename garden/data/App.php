@@ -1,5 +1,10 @@
 <?php
 
+namespace Main;
+
+use Cucumber\Agurkas;
+use Pepper\Paprika;
+
 class App
 {
 
@@ -95,7 +100,7 @@ class App
 
     public static function redirect($fileName)
     {
-        header("Location: http://localhost/1stlesson/folder/agurkai/$fileName.php");
+        header("Location: http://localhost/1stlesson/folder/garden/$fileName.php");
         exit;
     }
 }

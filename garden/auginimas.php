@@ -1,9 +1,10 @@
 <?php
 session_start();
-include __DIR__ . '/App.php';
-include __DIR__ . '/Darzove.php';
-include __DIR__ . '/Agurkas.php';
-include __DIR__ . '/Paprika.php';
+
+include __DIR__ . '/vendor/autoload.php';
+
+use Main\App;
+use Cucumber\Agurkas;
 
 App::setSession();
 
@@ -29,7 +30,7 @@ if (isset($_POST['auginti'])) {
     <a href="sodinimas.php">Sodinimas</a>
     <a href="auginimas.php">Auginimas</a>
     <a href="skynimas.php">Skynimas</a>
-    <?php include __DIR__ . '/error.php' ?>
+    <?php include __DIR__ . 'errors/error.php' ?>
     <form action="" method="post">
         <?php foreach ($_SESSION['darzoves'] as $darzove) : ?>
             <?php $darzove = unserialize($darzove) ?>

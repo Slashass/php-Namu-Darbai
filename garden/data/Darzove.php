@@ -1,12 +1,21 @@
 <?php
 
-class Darzove
+namespace Vegetable;
+
+use Greenhouse\Siltnamis;
+
+abstract class Darzove implements Siltnamis
 {
     // private $id, $count, $imgPath;
 
     public function augintiDarzove($kiek)
     {
         $this->count = $this->count + $kiek;
+    }
+
+    public function nuskintiDarzove($kiek)
+    {
+        $this->count = $this->count - $kiek;
     }
 
     public function nuskintiVisus()
@@ -19,8 +28,5 @@ class Darzove
         return $this->count;
     }
 
-    public function nuskintiDarzove($kiek)
-    {
-        $this->count = $this->count - $kiek;
-    }
+    abstract public function kiekAugti();
 }

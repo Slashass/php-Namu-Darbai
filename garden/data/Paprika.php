@@ -1,5 +1,9 @@
 <?php
 
+namespace Pepper;
+
+use Vegetable\Darzove;
+
 class Paprika extends Darzove
 {
     private $count, $id, $imgPath;

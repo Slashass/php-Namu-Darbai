@@ -1,0 +1,17 @@
+{
+    "name": "cmazv/garden",
+    "description": "Sodas",
+    "license": "MIT",
+    "require": {
+        "ramsey/uuid": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Main\\": "/data/",
+            "Cucumber\\": "data/",
+            "Pepper\\": "data/",
+            "Vegetable\\": "data/",
+            "Greenhouse\\": "data/"
+        }
+    }
+}
