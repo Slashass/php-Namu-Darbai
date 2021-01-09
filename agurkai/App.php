@@ -51,24 +51,29 @@ class App
         }
     }
 
-    public static function harvest()
+    public static function skinti()
     {
         foreach ($_SESSION['darzoves'] as $index => $value) {
             $value = unserialize($value);
             if ($_POST['skinti'] == $value->id) {
 
                 $kiek = (int) $_POST['kiek'];
-                if ($value->count < $kiek || $kiek < 0) {
-                    $_SESSION['error'] = 1;
+
+                if ($kiek < 0) {
+                    $_SESSION['err'] = 1;
                     break;
                 }
-                $value->count -= $kiek;
+                if ($kiek > $value->count) {
+                    $_SESSION['err'] = 3;
+                    break;
+                }
+                $value->nuskintiDarzove($kiek);
                 self::save($value, $index);
             }
         }
     }
 
-    public static function harvestOne()
+    public static function skintiVisusVienoAgurko()
     {
         foreach ($_SESSION['darzoves'] as $index => $value) {
             $value = unserialize($value);
@@ -79,7 +84,7 @@ class App
         }
     }
 
-    public static function harvestAll()
+    public static function nuskintiVisus()
     {
         foreach ($_SESSION['darzoves'] as $index => $value) {
             $value = unserialize($value);

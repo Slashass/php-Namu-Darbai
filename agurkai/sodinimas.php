@@ -35,7 +35,6 @@ if (isset($_POST['israuti'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sodinimas</title>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/reset.css">
 </head>
 
 
@@ -52,16 +51,16 @@ if (isset($_POST['israuti'])) {
             <?php if ($darzove instanceof Agurkas) : ?>
                 <div class="items">
                     <img src="img/cuc-<?= $darzove->imgPath ?>.jpg" alt="Agurko nuotrauka">
-                    Agurkas nr. <?= $darzove->id ?>
-                    Agurku: <?= $darzove->count ?>
-                    <button type="submit" name="israuti" value="<?= $darzove->id ?>">ISRAUTI</button>
+                    <h2>Agurkas nr. :<?= $darzove->id ?></h2>
+                    <p>Agurku: <?= $darzove->count ?></p>
+                    <button style="float: right;" type="submit" name="israuti" value="<?= $darzove->id ?>">ISRAUTI</button>
                 </div>
             <?php else : ?>
                 <div class="items">
                     <img src="img/paprika-<?= $darzove->imgPath ?>.jpg" alt="Paprikos nuotrauka">
-                    Paprikos nr. <?= $darzove->id ?>
-                    Papriku: <?= $darzove->count ?>
-                    <button type="submit" name="israuti" value="<?= $darzove->id ?>">ISRAUTI</button>
+                    <h2>Paprikos nr. :<?= $darzove->id ?></h2>
+                    <p>Papriku: <?= $darzove->count ?></p>
+                    <button style="float: right;" type="submit" name="israuti" value="<?= $darzove->id ?>">ISRAUTI</button>
                 </div>
             <?php endif ?>
         <?php endforeach ?>

@@ -2,21 +2,18 @@ body {
     border: 1px solid black;
     text-align: center;
     position: relative;
-    width: 70%;
-    height: 870px;
-    overflow-y: hidden; /* Hide vertical scrollbar */
     justify-content: center;
+    background-color: red;
 }
 .items {
-    padding: 10px;
+
+    margin: 12px;
 }
 .items > h2 {
     display: inline;
     float: left;
 }
-p {
-}
-img {
+.items > img {
     float: left;
     height: 60px;
     width: 60px;
@@ -41,10 +38,6 @@ a:hover {
     color: #034F66;
 }
 
-div {
-    font-size: 30px;
-    padding: 15px;
-}
 
 button {
     background-color: #046380;
@@ -58,7 +51,7 @@ button {
     box-shadow: 2px 2px 0 #034154;
     margin-bottom: 10px;
     margin-left: 18px;
-    margin-top: 40px;
+    margin-top: 60px;
     transition: opacity .4s ease-out, transform .4s ease-out, visibility .4s ease-out;
     position: relative;
 }

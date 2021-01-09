@@ -21,7 +21,6 @@ if (isset($_POST['auginti'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auginimas</title>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/reset.css">
 </head>
 
 <body>
@@ -30,13 +29,14 @@ if (isset($_POST['auginti'])) {
     <a href="sodinimas.php">Sodinimas</a>
     <a href="auginimas.php">Auginimas</a>
     <a href="skynimas.php">Skynimas</a>
+    <?php include __DIR__ . '/error.php' ?>
     <form action="" method="post">
         <?php foreach ($_SESSION['darzoves'] as $darzove) : ?>
             <?php $darzove = unserialize($darzove) ?>
             <?php if ($darzove instanceof Agurkas) : ?>
                 <div class="items">
                     <img src="img/cuc-<?= $darzove->imgPath ?>.jpg" alt="Agurko nuotrauka">
-                    <h2 style="display: inline;">Agurkas Nr. :<?= $darzove->id ?></h2>
+                    <h2>Agurkas Nr. :<?= $darzove->id ?></h2>
                     <p class="kiek-augs"> +<?= $kiekis = $darzove->kiekAugti() ?></p>
                     <input type="hidden" name="kiekis[<?= $darzove->id ?>]" value="<?= $kiekis ?>">
                     <p>Agurku: <?= $darzove->count ?></p>
@@ -44,7 +44,7 @@ if (isset($_POST['auginti'])) {
             <?php else : ?>
                 <div class="items">
                     <img src="img/paprika-<?= $darzove->imgPath ?>.jpg" alt="Agurko nuotrauka">
-                    <h2 style="display: inline;">Paprika Nr. :<?= $darzove->id ?></h2>
+                    <h2>Paprika Nr. :<?= $darzove->id ?></h2>
                     <p class="kiek-augs"> +<?= $kiekis = $darzove->kiekAugti() ?></p>
                     <input type="hidden" name="kiekis[<?= $darzove->id ?>]" value="<?= $kiekis ?>">
                     <p> Papriku: <?= $darzove->count ?></p>

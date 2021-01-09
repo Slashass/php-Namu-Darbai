@@ -1,9 +1,12 @@
 <?php if (isset($_SESSION['err'])) : ?>
     <?php if (1 == $_SESSION['err']) : ?>
-        <h3 style="color:red;">Neigiamas agurkas</h3>
+        <h2 style="color:red;">Neigiamas agurkas</h2>
     <?php endif ?>
     <?php if (2 == $_SESSION['err']) : ?>
-        <h3 style="color:red;">Per daug sodinate, pone</h3>
+        <h2 style="color:red;">Per daug sodinate, pone</h2>
+    <?php endif ?>
+    <?php if (3 == $_SESSION['err']) : ?>
+        <h2 style="color:red;">Per daug norite nuskinti, pone</h2>
     <?php endif ?>
     <?php unset($_SESSION['err']) ?>
 <?php endif ?>
