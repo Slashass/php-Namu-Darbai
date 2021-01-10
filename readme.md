@@ -1,5 +1,5 @@
 ![Homework](https://img.shields.io/badge/PHP-homework-blue)
-![HitCount](http://hits.dwyl.com/rositatisor/homework.svg)
+![HitCount](http://hits.dwyl.com/Slashass/php-Namu-Darbai.svg)
 ![Watchers](https://img.shields.io/github/watchers/Slashass/php-Namu-Darbai?style=social)
 
 # PHP homework
