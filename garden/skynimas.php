@@ -54,7 +54,7 @@ if (isset($_POST['nuskinti-viska'])) {
                 <div class="items skynimas">
                     <img src="./img/cuc-<?= $darzove->imgPath ?>.jpg" alt="Agurko nuotrauka">
                     <?php if ($darzove->count == 0) : ?>
-                        <h2 style="display: inline;">Agurkas nr. <?= $darzove->id ?></h2>
+                        <h2 style="display: inline;">Agurkas Nr. :<?= $darzove->id ?></h2>
                         <p>Kiekis: <span><?= $darzove->gautiKieki() ?></span></p>
                         <p>Nėra ko skinti.</p>
                     <?php else : ?>
@@ -69,7 +69,7 @@ if (isset($_POST['nuskinti-viska'])) {
                 <div class="items skynimas">
                     <img src="./img/paprika-<?= $darzove->imgPath ?>.jpg" alt="Paprikos nuotrauka">
                     <?php if ($darzove->gautiKieki() == 0) : ?>
-                        <h2 style="display: inline;">Paprika nr. <?= $darzove->id ?></h2>
+                        <h2 style="display: inline;">Paprikos Nr. :<?= $darzove->id ?></h2>
                         <p>Kiekis: <span><?= $darzove->gautiKieki() ?></span></p>
                         <p>Nėra ko skinti.</p>
                     <?php else : ?>
