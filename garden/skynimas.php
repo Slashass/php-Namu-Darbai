@@ -37,12 +37,15 @@ if (isset($_POST['nuskinti-viska'])) {
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body>
-    <h1>Agurku sodas </h1>
-    <h2>Skynimas </h2>
+<header>
     <a href="sodinimas.php">Sodinimas</a>
     <a href="auginimas.php">Auginimas</a>
     <a href="skynimas.php">Skynimas</a>
+</header>
+
+<body>
+    <h1>Agurku sodas </h1>
+    <h2>Skynimas </h2>
     <?php include __DIR__ . '/err/error.php' ?>
     <form action="" method="post">
         <?php foreach ($_SESSION['darzoves'] as $darzove) : ?>
@@ -56,7 +59,7 @@ if (isset($_POST['nuskinti-viska'])) {
                         <p>Nėra ko skinti.</p>
                     <?php else : ?>
                         <h2>Agurkas Nr. :<?= $darzove->id ?></h2>
-                        <p>Galima skinti: <?= $darzove->count ?></p>
+                        <p class="galimaSkinti">Galima skinti: <?= $darzove->count ?></p>
                         <input class="kiek" type="text" name="kiek">
                         <button class="skinti" type="submit" name="skinti" value="<?= $darzove->id ?>">Skinti</button>
                         <button class="skinti-visus" type="submit" name="skinti-visus" value="<?= $darzove->id ?>">Skinti visus</button>
@@ -70,8 +73,8 @@ if (isset($_POST['nuskinti-viska'])) {
                         <p>Kiekis: <span><?= $darzove->gautiKieki() ?></span></p>
                         <p>Nėra ko skinti.</p>
                     <?php else : ?>
-                        <h2>Paprika Nr. :<?= $darzove->id ?></h2>
-                        <p>Galima skinti: <?= $darzove->count ?></p>
+                        <h2>Paprikos Nr. :<?= $darzove->id ?></h2>
+                        <p class="galimaSkinti">Galima skinti: <?= $darzove->count ?></p>
                         <input class="kiek" type="text" name="kiek">
                         <button class="skinti" type="submit" name="skinti" value="<?= $darzove->id ?>">Skinti</button>
                         <button class="skinti-visus" type="submit" name="skinti-visus" value="<?= $darzove->id ?>">Skinti visus</button>

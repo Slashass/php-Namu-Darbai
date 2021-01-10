@@ -40,12 +40,15 @@ if (isset($_POST['israuti'])) {
 </head>
 
 
-<body>
-    <h1>Agurku sodas </h1>
-    <h2>Sodinimas </h2>
+<header>
     <a href="sodinimas.php">Sodinimas</a>
     <a href="auginimas.php">Auginimas</a>
     <a href="skynimas.php">Skynimas</a>
+</header>
+
+<body>
+    <h1>Agurku sodas </h1>
+    <h2>Sodinimas </h2>
     <?php include __DIR__ . '/err/error.php' ?>
     <form action="" method="post">
         <?php foreach ($_SESSION['darzoves'] as $darzove) : ?>
@@ -66,8 +69,8 @@ if (isset($_POST['israuti'])) {
                 </div>
             <?php endif ?>
         <?php endforeach ?>
-        <button class="sodinti agurka" type="submit" name="sodinti-agurka">Sodinti agurką</button>
-        <button class="sodinti paprika" type="submit" name="sodinti-paprika">Sodinti paprika</button>
+        <button class="sodintiAgurka" type="submit" name="sodinti-agurka">Sodinti agurką</button>
+        <button class="sodintiPaprika" type="submit" name="sodinti-paprika">Sodinti paprika</button>
     </form>
 </body>
 
