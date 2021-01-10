@@ -7,11 +7,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Main\\": "/data/",
-            "Cucumber\\": "data/",
-            "Pepper\\": "data/",
-            "Vegetable\\": "data/",
-            "Greenhouse\\": "data/"
+            "Main\\": "src",
+            "Cucumber\\": "src",
+            "Pepper\\": "src",
+            "Vegetable\\": "src",
+            "Greenhouse\\": "src"
         }
     }
 }

@@ -21,6 +21,7 @@ if (isset($_POST['auginti'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auginimas</title>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -30,8 +31,8 @@ if (isset($_POST['auginti'])) {
     <a href="sodinimas.php">Sodinimas</a>
     <a href="auginimas.php">Auginimas</a>
     <a href="skynimas.php">Skynimas</a>
-    <?php include __DIR__ . 'errors/error.php' ?>
-    <form action="" method="post">
+    <?php include __DIR__ . '/err/error.php' ?>
+    <form class="auginimas" action="" method="post">
         <?php foreach ($_SESSION['darzoves'] as $darzove) : ?>
             <?php $darzove = unserialize($darzove) ?>
             <?php if ($darzove instanceof Agurkas) : ?>
