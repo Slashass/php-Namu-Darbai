@@ -1,11 +1,17 @@
 body {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
     border: 1px solid black;
     text-align: center;
-    position: relative;
     justify-content: center;
 }
-.items {
 
+ .auginimas {
+    display: grid;
+}
+
+.items {
     margin: 12px;
 }
 .items > h2 {
@@ -14,16 +20,8 @@ body {
 }
 .items > img {
     float: left;
-    height: 60px;
-    width: 60px;
-}
-
-h1 {
-    font-size: 50px;
-}
-
-h2 {
-    font-size: 30px;
+    height: 100px;
+    width: 100px;
 }
 
 a {
@@ -63,4 +61,8 @@ button > .sodinti-agurka {
 }
 button > .sodinti-paprika {
     position: absolute;
+}
+.items > button > .isrovimoMyg {
+    display: inline;
+    float: right;
 }
