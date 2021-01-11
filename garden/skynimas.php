@@ -47,8 +47,9 @@ if (isset($_POST['nuskinti-viska'])) {
     <h1>Agurku sodas </h1>
     <h2>Skynimas </h2>
     <?php include __DIR__ . '/err/error.php' ?>
-    <form action="" method="post">
+    
         <?php foreach ($_SESSION['darzoves'] as $darzove) : ?>
+            <form action="" method="post">
             <?php $darzove = unserialize($darzove) ?>
             <?php if ($darzove instanceof Agurkas) : ?>
                 <div class="items skynimas">
@@ -81,10 +82,11 @@ if (isset($_POST['nuskinti-viska'])) {
                     <?php endif ?>
                 </div>
             <?php endif ?>
+            </form>
         <?php endforeach ?>
         <form class="nuskinti-viska" action="" method="post">
             <button class="nuskinti-viska" type="submit" name="nuskinti-viska">Nuskinti visus agurkus</button>
-        </form>
+       
 </body>
 
 </html>
