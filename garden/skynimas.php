@@ -49,7 +49,7 @@ if (isset($_POST['nuskinti-viska'])) {
     <?php include __DIR__ . '/err/error.php' ?>
 
     <?php foreach ($_SESSION['darzoves'] as $darzove) : ?>
-        <form action="" method="post">
+        <form action="<?= URL . 'skynimas' ?>" method="post">
             <?php $darzove = unserialize($darzove) ?>
             <?php if ($darzove instanceof Agurkas) : ?>
                 <div class="items skynimas">
@@ -61,7 +61,7 @@ if (isset($_POST['nuskinti-viska'])) {
                     <?php else : ?>
                         <h2>Agurkas Nr. :<?= $darzove->id ?></h2>
                         <p class="galimaSkinti">Galima skinti: <?= $darzove->count ?></p>
-                        <input class="kiek" type="text" name="kiek">
+                        <input class="kiek" type="number" name="kiek">
                         <button class="skinti" type="submit" name="skinti" value="<?= $darzove->id ?>">Skinti</button>
                         <button class="skinti-visus" type="submit" name="skinti-visus" value="<?= $darzove->id ?>">Skinti visus</button>
                     <?php endif ?>
@@ -76,7 +76,7 @@ if (isset($_POST['nuskinti-viska'])) {
                     <?php else : ?>
                         <h2>Paprikos Nr. :<?= $darzove->id ?></h2>
                         <p class="galimaSkinti">Galima skinti: <?= $darzove->count ?></p>
-                        <input class="kiek" type="text" name="kiek">
+                        <input class="kiek" type="number" name="kiek">
                         <button class="skinti" type="submit" name="skinti" value="<?= $darzove->id ?>">Skinti</button>
                         <button class="skinti-visus" type="submit" name="skinti-visus" value="<?= $darzove->id ?>">Skinti visus</button>
                     <?php endif ?>
