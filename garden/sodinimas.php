@@ -1,7 +1,6 @@
 <?php
-session_start();
+defined('DOOR_BELL') || exit('Nurodytas blogas URL');
 
-include __DIR__ . '/vendor/autoload.php';
 
 use Main\App;
 use Cucumber\Agurkas;
@@ -41,9 +40,9 @@ if (isset($_POST['israuti'])) {
 
 
 <header>
-    <a href="sodinimas.php">Sodinimas</a>
-    <a href="auginimas.php">Auginimas</a>
-    <a href="skynimas.php">Skynimas</a>
+    <a href="sodinimas">Sodinimas</a>
+    <a href="auginimas">Auginimas</a>
+    <a href="skynimas">Skynimas</a>
 </header>
 
 <body>
