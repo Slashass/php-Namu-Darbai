@@ -1,6 +1,6 @@
 <?php
-session_start();
-include __DIR__ . '/vendor/autoload.php';
+defined('DOOR_BELL') || exit('Nurodytas blogas URL');
+
 
 use Main\App;
 use Cucumber\Agurkas;
@@ -38,18 +38,18 @@ if (isset($_POST['nuskinti-viska'])) {
 </head>
 
 <header>
-    <a href="sodinimas.php">Sodinimas</a>
-    <a href="auginimas.php">Auginimas</a>
-    <a href="skynimas.php">Skynimas</a>
+    <a href="sodinimas">Sodinimas</a>
+    <a href="auginimas">Auginimas</a>
+    <a href="skynimas">Skynimas</a>
 </header>
 
 <body>
     <h1>Agurku sodas </h1>
     <h2>Skynimas </h2>
     <?php include __DIR__ . '/err/error.php' ?>
-    
-        <?php foreach ($_SESSION['darzoves'] as $darzove) : ?>
-            <form action="" method="post">
+
+    <?php foreach ($_SESSION['darzoves'] as $darzove) : ?>
+        <form action="" method="post">
             <?php $darzove = unserialize($darzove) ?>
             <?php if ($darzove instanceof Agurkas) : ?>
                 <div class="items skynimas">
@@ -82,11 +82,11 @@ if (isset($_POST['nuskinti-viska'])) {
                     <?php endif ?>
                 </div>
             <?php endif ?>
-            </form>
-        <?php endforeach ?>
-        <form class="nuskinti-viska" action="" method="post">
-            <button class="nuskinti-viska" type="submit" name="nuskinti-viska">Nuskinti visus agurkus</button>
-       
+        </form>
+    <?php endforeach ?>
+    <form class="nuskinti-viska" action="" method="post">
+        <button class="nuskinti-viska" type="submit" name="nuskinti-viska">Nuskinti visus agurkus</button>
+
 </body>
 
 </html>

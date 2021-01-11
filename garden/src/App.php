@@ -72,6 +72,10 @@ class App
                     $_SESSION['err'] = 3;
                     break;
                 }
+                if ($kiek == (string)(float)$kiek) {
+                    $_SESSION['err'] = 4;
+                    break;
+                }
                 $value->nuskintiDarzove($kiek);
                 self::save($value, $index);
             }
@@ -100,7 +104,7 @@ class App
 
     public static function redirect($fileName)
     {
-        header("Location: http://localhost/1stlesson/folder/garden/$fileName.php");
+        header("Location: http://localhost/1stlesson/folder/garden/$fileName");
         exit;
     }
 }
