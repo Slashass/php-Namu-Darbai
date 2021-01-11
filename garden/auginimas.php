@@ -1,16 +1,17 @@
 <?php
 defined('DOOR_BELL') || exit('Nurodytas blogas URL');
 
-
+use Main\Storage;
 use Main\App;
 use Cucumber\Agurkas;
+use Peper\Paprika;
 
-App::setSession();
+$storage = new Storage('darzoves');
 
-if (isset($_POST['auginti'])) {
-    App::grow();
-    App::redirect('auginimas');
-}
+    if(isset($_POST['auginti'])) {
+        $storage->grow();
+        App::redirect('auginimas');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -31,12 +32,11 @@ if (isset($_POST['auginti'])) {
 </header>
 
 <body>
-    <h1>Agurku sodas </h1>
+    <h1>Darzoviu sodas </h1>
     <h2>Auginimas </h2>
     <?php include __DIR__ . '/err/error.php' ?>
-    <form action="" method="post">
-        <?php foreach ($_SESSION['darzoves'] as $darzove) : ?>
-            <?php $darzove = unserialize($darzove) ?>
+    <form action="<?= URL . 'auginimas' ?>" method="post">
+        <?php foreach ($storage->getAll() as $darzove) : ?>
             <?php if ($darzove instanceof Agurkas) : ?>
                 <div class="items auginimas">
                     <img src="img/cuc-<?= $darzove->imgPath ?>.jpg" alt="Agurko nuotrauka">

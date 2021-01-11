@@ -2,109 +2,31 @@
 
 namespace Main;
 
-use Cucumber\Agurkas;
-use Pepper\Paprika;
-
 class App
 {
 
-    public static function setSession()
+    public static function router()
     {
-        if (!isset($_SESSION['darzoves'])) {
-            $_SESSION['darzoves'] = [];
-            $_SESSION['darzoviu id'] = 0;
-        }
-    }
 
-    public static function save($value, $index)
-    {
-        $value = serialize($value);
-        $_SESSION['darzoves'][$index] = $value;
-    }
+        // pasalinam folderi is duomenu
+        $uri = str_replace(INSTALL_FOLDER, '', $_SERVER['REQUEST_URI']);
 
+        // duomenis pasiverciam i masyva is uri eilutes
+        $uri = explode('/', $uri);
 
-    public static function plantAgurkas()
-    {
-        $agurkasObj = new Agurkas($_SESSION['darzoviu id']);
-        $_SESSION['darzoviu id']++;
-        $_SESSION['darzoves'][] = serialize($agurkasObj);
-    }
-
-    public static function plantPaprika()
-    {
-        $zirnisObj = new Paprika($_SESSION['darzoviu id']);
-        $_SESSION['darzoviu id']++;
-        $_SESSION['darzoves'][] = serialize($zirnisObj);
-    }
-
-    public static function remove()
-    {
-        foreach ($_SESSION['darzoves'] as $index => $value) {
-            $value = unserialize($value);
-            if ($_POST['israuti'] == $value->id) {
-                unset($_SESSION['darzoves'][$index]);
-            }
-        }
-    }
-
-    public static function grow()
-    {
-        foreach ($_SESSION['darzoves'] as $index => $value) {
-            $value = unserialize($value);
-            $value->augintiDarzove($_POST['kiekis'][$value->id]);
-            self::save($value, $index);
-        }
-    }
-
-    public static function skinti()
-    {
-        foreach ($_SESSION['darzoves'] as $index => $value) {
-            $value = unserialize($value);
-            if ($_POST['skinti'] == $value->id) {
-
-                $kiek = (int) $_POST['kiek'];
-
-                if ($kiek < 0) {
-                    $_SESSION['err'] = 1;
-                    break;
-                }
-                if ($kiek > $value->count) {
-                    $_SESSION['err'] = 3;
-                    break;
-                }
-                if ($kiek == (string)(float)$kiek) {
-                    $_SESSION['err'] = 4;
-                    break;
-                }
-                $value->nuskintiDarzove($kiek);
-                self::save($value, $index);
-            }
-        }
-    }
-
-    public static function skintiVisusVienoAgurko()
-    {
-        foreach ($_SESSION['darzoves'] as $index => $value) {
-            $value = unserialize($value);
-            if ($_POST['skinti-visus'] == $value->id) {
-                $value->nuskintiVisus();
-                self::save($value, $index);
-            }
-        }
-    }
-
-    public static function nuskintiVisus()
-    {
-        foreach ($_SESSION['darzoves'] as $index => $value) {
-            $value = unserialize($value);
-            $value->nuskintiVisus();
-            self::save($value, $index);
+        // Router
+        if ('sodinimas' == $uri[0]) {
+            include DIR . '/sodinimas.php';
+        } elseif ('auginimas' == $uri[0]) {
+            include DIR . '/auginimas.php';
+        } elseif ('skynimas' == $uri[0]) {
+            include DIR . '/skynimas.php';
         }
     }
 
     public static function redirect($fileName)
     {
-        header("Location: http://localhost/1stlesson/folder/garden/$fileName");
+        header('Location: ' . URL . $fileName);
         exit;
     }
 }

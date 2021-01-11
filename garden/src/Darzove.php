@@ -23,10 +23,5 @@ abstract class Darzove implements Siltnamis
         $this->count = 0;
     }
 
-    public function gautiKieki()
-    {
-        return $this->count;
-    }
-
     abstract public function kiekAugti();
 }

@@ -1,17 +1,16 @@
 {
     "name": "cmazv/garden",
     "description": "Sodas",
-    "license": "MIT",
-    "require": {
-        "ramsey/uuid": "^4.1"
-    },
+    "authors": [
+        {
+            "name": "Mazvydas",
+            "email": "cm@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
-            "Main\\": "src",
-            "Cucumber\\": "src",
-            "Pepper\\": "src",
-            "Vegetable\\": "src",
-            "Greenhouse\\": "src"
+            "Main\\": "src"
         }
-    }
+    },
+    "require": {}
 }

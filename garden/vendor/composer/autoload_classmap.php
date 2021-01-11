@@ -7,9 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Cucumber\\Agurkas' => $baseDir . '/src/Agurkas.php',
-    'Greenhouse\\Siltnamis' => $baseDir . '/src/Siltnamis.php',
-    'Main\\App' => $baseDir . '/src/App.php',
-    'Pepper\\Paprika' => $baseDir . '/src/Paprika.php',
-    'Vegetable\\Darzove' => $baseDir . '/src/Darzove.php',
 );
