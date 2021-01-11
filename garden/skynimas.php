@@ -10,17 +10,17 @@ $storage = new Storage('darzoves');
 
 if (isset($_POST['skinti'])) {
     $storage->skinti();
-    Main\App::redirect('skynimas');
+    App::redirect('skynimas');
 }
 
 if (isset($_POST['skinti-visus'])) {
     $storage->skintiVisusVienoAgurko();
-    Main\App::redirect('skynimas');
+    App::redirect('skynimas');
 }
 
-if (isset($_POST['nuimti-viska'])) {
+if (isset($_POST['nuskinti-viska'])) {
     $storage->nuskintiVisus();
-    Main\App::redirect('skynimas');
+    App::redirect('skynimas');
 }
 
 

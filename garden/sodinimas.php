@@ -12,14 +12,14 @@ use Peper\Paprika;
 
 $storage = new Storage('darzoves');
 
-if (isset($_POST['sodintiAgurka'])) {
+if (isset($_POST['sodinti-agurka'])) {
     $agurkasObj = new Agurkas($storage->getNewId());
     $storage->addNewAgurkas($agurkasObj);
     App::redirect('sodinimas');
 }
 
-if (isset($_POST['sodintiPaprika'])) {
-    $PaprikaObj = new Paprika($storage->getNewId());
+if (isset($_POST['sodinti-paprika'])) {
+    $paprikaObj = new Paprika($storage->getNewId());
     $storage->addNewPaprika($paprikaObj);
     App::redirect('sodinimas');
 }

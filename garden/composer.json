@@ -9,7 +9,11 @@
     ],
     "autoload": {
         "psr-4": {
-            "Main\\": "src"
+            "Main\\": "src",
+            "Cucumber\\": "src",
+            "Peper\\": "src",
+            "Vegetable\\": "src",
+            "Greenhouse\\": "src"
         }
     },
     "require": {}

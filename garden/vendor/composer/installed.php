@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '899cdcdd5bbdc04dc383fcf8073cde8c0e6ecafe',
+    'reference' => 'ea8b152fe2011689d24746411b4d6ce9dc6928d0',
     'name' => 'cmazv/garden',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '899cdcdd5bbdc04dc383fcf8073cde8c0e6ecafe',
+      'reference' => 'ea8b152fe2011689d24746411b4d6ce9dc6928d0',
     ),
   ),
 );
