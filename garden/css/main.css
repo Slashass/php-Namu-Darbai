@@ -118,6 +118,13 @@ button:hover {
     float: right;
 }
 
+@media (max-width: 1300px) {
+    p {
+        font-size: 20px;
+    }
+}
+
+
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
