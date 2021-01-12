@@ -16,6 +16,7 @@ This repository is for educational porpuses only.
 6. Functions (Funkcijos)
 7. WEB (WEB mechanika)
 8. OOP basics (Garden)
+9. Axios/JS (Javascript)
 
 <img width="550" alt="Capture" src="screenshot/screenshot.png">
 
