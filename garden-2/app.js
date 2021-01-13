@@ -36,13 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
         list: 1,
     })
         .then(function (response) {
-            // console.log(response.data);
+            console.log(response.data);
             list.innerHTML = response.data.list;
             errorMsg.innerHTML = '';
             addNewList();
         })
         .catch(function (error) {
-            console.log(error.response.data);
+            console.log(error.response.data.msg);
             errorMsg.innerHTML = error.response.data.msg;
         });
 })
@@ -51,13 +51,14 @@ buttonCucumber.addEventListener('click', () => {
     const count = document.querySelector('#cucumber').value;
 
     axios.post(apiUrl, {
-        'kiekis': count,
-        'sodintiAgurka': 1
+        kiekis: count,
+        sodintiAgurka: 1
     })
         .then(function (response) {
             console.log(response);
             placeCucumber.innerHTML = response.data.list;
             errorMsg.innerHTML = '';
+            addNewList();
         })
         .catch(function (error) {
             console.log(error.response.data);
@@ -69,13 +70,14 @@ buttonPeper.addEventListener('click', () => {
     const count = document.querySelector('#peper').value;
 
     axios.post(apiUrl, {
-        'kiekis': count,
-        'sodintiPaprika': 1
+        kiekis: count,
+        sodintiPaprika: 1
     })
         .then(function (response) {
             console.log(response);
             placePeper.innerHTML = response.data.list;
             errorMsg.innerHTML = '';
+            addNewList();
         })
         .catch(function (error) {
             console.log(error.response.data);
