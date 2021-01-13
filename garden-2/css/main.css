@@ -1,0 +1,147 @@
+body {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    width: 90%;
+    overflow-x: hidden;
+    border: 3px solid black;
+    border-radius: 20px;
+    text-align: center;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+header {
+    border-bottom: 3px solid #034154;
+    height: 40px;
+}
+
+body > form {
+    display: grid;
+}
+
+#list {
+    display: contents;
+}
+
+input, .agurkas {
+    width: min-content;
+    justify-self: center;
+}
+
+.items {
+    margin: 12px;
+}
+.items > h2 {
+    float: left;
+}
+
+.items > h3 {
+    position: relative;
+    float: left;
+    left: 200px;
+    font-size: 30px;
+    color: #046380;
+}
+.items-auginimas > h3 {
+    float: right;
+}
+
+.items > img {
+    float: left;
+    height: 100px;
+    width: 100px;
+    margin-top: -10px;
+}
+
+.items > .isrovimoMyg {
+    float: right;
+}
+
+.items-sodinimas {
+    display: inline;
+}
+
+a {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 15px;
+    color: #046380;
+}
+
+p {
+    font-size: 35px;
+    float: right;
+    left: 50px;
+    color: red;
+    font-weight: bold;
+    margin-right: 150px;
+}
+
+.galimaSkinti {
+    font-size: 20px;
+    float: left;
+}
+
+a:hover {
+    color:  red;
+}
+
+.kiek {
+    float: left;
+}
+
+.skinti-visus {
+    float: right;
+    right: 29px;
+}
+
+button {
+    background-color: #046380;
+    color: #FFF;
+    border: none;
+    padding: 10px 15px;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 2px 2px 0 #034154;
+    margin-bottom: 10px;
+    margin-left: 18px;
+    transition: opacity .4s ease-out, transform .4s ease-out, visibility .4s ease-out;
+    position: relative;
+    width: 200px;
+}
+
+button:hover {
+    background-color: #034F66;
+}
+
+.sodintiAgurka, .sodintiPaprika, .auginti, .nuskinti-viska {
+    justify-self: center;
+}
+
+.items-sodinimas > button .isrovimoMyg {
+    float: right;
+}
+
+@media (max-width: 1300px) {
+    p {
+        font-size: 20px;
+    }
+}
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

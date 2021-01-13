@@ -1,0 +1,20 @@
+{
+    "name": "cmazv/garden",
+    "description": "Sodas",
+    "authors": [
+        {
+            "name": "Mazvydas",
+            "email": "cm@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Main\\": "src",
+            "Cucumber\\": "src",
+            "Peper\\": "src",
+            "Vegetable\\": "src",
+            "Greenhouse\\": "src"
+        }
+    },
+    "require": {}
+}
