@@ -51,12 +51,12 @@ class Storage
         $this->data['darzoves'][$index] = $darzove;
     }
 
-    public function addNewAgurkas($agurkasObj)
+    public function addNewAgurkas(Agurkas $agurkasObj)
     {
         $this->data['darzoves'][] = serialize($agurkasObj);
     }
 
-    public function addNewPaprika($paprikaObj)
+    public function addNewPaprika(Paprika $paprikaObj)
     {
         $this->data['darzoves'][] = serialize($paprikaObj);
     }

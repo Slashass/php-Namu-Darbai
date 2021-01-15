@@ -12,16 +12,15 @@ use Peper\Paprika;
 
 $storage = new Storage('darzoves');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ('POST' == $_SERVER['REQUEST_METHOD']) {
     $rawData = file_get_contents("php://input");
     $rawData = json_decode($rawData, 1);
     // _d($rawData);
 
-
+    // Listo setinimas --------------------------------------
     if (isset($rawData['list'])) {
         ob_start();
-        include __DIR__ . '/list-cuc.php';
-        include __DIR__ . '/list-pap.php';
+        include __DIR__ . '/list.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];
@@ -29,12 +28,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Content-type: application/json');
         http_response_code(200);
         echo $json;
-        die;
-    } elseif (isset($rawData['sodintiAgurka'])) {
+        exit;
+
+        // Agurko sodinimas ----------------------------------
+    } elseif (isset($rawData['cucumber'])) {
         $kiekis = $rawData['kiekis'];
         // _d($kiekis);
+        $kiekis = $kiekis ? $kiekis : 1;
 
-        if ($kiekis < 0 || 4 < $kiekis) {
+        if ($kiekis < 0 || 4 < $kiekis) { // <--- validacija
             if (0 > $kiekis) $error = 1;
             elseif (4 < $kiekis) $error = 2;
             ob_start();
@@ -55,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // App::redirect('sodinimas');
         }
         ob_start();
-        include __DIR__ . '/list-cuc.php';
+        include __DIR__ . '/list.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];
@@ -64,14 +66,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         http_response_code(201);
         echo $json;
         exit;
-    } elseif (isset($rawData['sodintiPaprika'])) {
+
+        // Paprikos sodinimas ----------------------------------
+    } elseif (isset($rawData['peper'])) {
         $kiekis = $rawData['kiekis'];
 
-        if (0 > $kiekis || 4 < $kiekis) {
+        $kiekis = $kiekis ? $kiekis : 1;
+
+        if (0 > $kiekis || 4 < $kiekis) { // <--- validacija
             if (0 > $kiekis) $error = 1;
             elseif (4 < $kiekis) $error = 2;
             ob_start();
-            include __DIR__ . '/err/error.php.php';
+            include __DIR__ . '/err/error.php';
             $output = ob_get_contents();
             ob_end_clean();
             $json = ['msg' => $output];
@@ -79,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Content-type: application/json');
             http_response_code(400);
             echo $json;
-            die;
+            exit;
         }
 
         foreach (range(1, $kiekis) as $_) {
@@ -87,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $storage->addNewPaprika($paprikaObj);
         }
         ob_start();
-        include __DIR__ . '/list-pap.php';
+        include __DIR__ . '/list.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];
@@ -95,13 +101,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Content-type: application/json');
         http_response_code(201);
         echo $json;
-        die;
+        exit;
+
+        // Isrovimo scenarijus ---------------------------------
     } elseif (isset($rawData['israuti'])) {
         $storage->remove($rawData['id']);
 
         ob_start();
-        include __DIR__ . '/list-cuc.php';
-        include __DIR__ . '/list-pap.php';
+        include __DIR__ . '/list.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];
@@ -109,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Content-type: application/json');
         http_response_code(200);
         echo $json;
-        die;
+        exit;
     }
 }
 ?>
@@ -121,12 +128,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sodinimas</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" defer integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
     <script src="http://localhost/1stlesson/folder/garden-2/app.js" defer></script>
     <script>
         const apiUrl = 'http://localhost/1stlesson/folder/garden-2/sodinimas';
     </script>
-    <title>Sodinimas</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -142,15 +149,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h1>Darzoviu sodas </h1>
     <h2>Sodinimas </h2>
     <div id="error"></div>
-    <div id="grazinaA"></div>
-    <div id="grazinaP"></div>
     <form>
         <div id="list"></div>
 
-        <input class="agurkas" type="text" name="sodinti-agurka" id="cucumber">
-        <button class="sodintiAgurka" type="button">Sodinti agurką</button>
-        <input class="paprika" type="text" name="sodinti-paprika" id="peper">
-        <button class="sodintiPaprika" type="button">Sodinti paprika</button>
+        <input class="agurkas" type="text" name="kiekisC">
+        <button class="sodintiAgurka" type="button" name="cucumber" id="cucumber">Sodinti agurką</button>
+        <input class="paprika" type="text" name="kiekisP">
+        <button class="sodintiPaprika" type="button" name="peper" id="peper">Sodinti paprika</button>
     </form>
 </body>
 

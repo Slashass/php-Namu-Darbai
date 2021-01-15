@@ -7,7 +7,7 @@ use Vegetable\Darzove;
 class Agurkas extends Darzove
 {
 
-    private $id, $count, $imgPath;
+    private $id, $count, $imgPath, $name;
 
     // public $propertyName;
     public function __construct($id)
@@ -15,6 +15,7 @@ class Agurkas extends Darzove
         $this->id = $id + 1;
         $this->imgPath = rand(1, 6);
         $this->count = 0;
+        $this->name = 'Agurkas';
 
         // $agurkoObj->id = $_SESSION['agurku ID'] + 1;
         // $agurkoObj->count = 0;

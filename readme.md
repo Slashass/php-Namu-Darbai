@@ -17,6 +17,7 @@ This repository is for educational porpuses only.
 7. WEB (WEB mechanika)
 8. OOP basics (Garden)
 9. Axios/JS (Javascript)
+10. API (Distance)
 
 <img width="550" alt="Capture" src="screenshot/screenshot.png">
 
