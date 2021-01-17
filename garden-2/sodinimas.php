@@ -9,7 +9,6 @@ use Peper\Paprika;
 // _d($_SESSION, 'SESIJA');
 // _dc($_SESSION);
 
-
 $storage = new Storage('darzoves');
 
 if ('POST' == $_SERVER['REQUEST_METHOD']) {
@@ -130,7 +129,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sodinimas</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" defer integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
-    <script src="http://localhost/1stlesson/folder/garden-2/app.js" defer></script>
+    <script src="http://localhost/1stlesson/folder/garden-2/js/app.js" defer></script>
     <script>
         const apiUrl = 'http://localhost/1stlesson/folder/garden-2/sodinimas';
     </script>
