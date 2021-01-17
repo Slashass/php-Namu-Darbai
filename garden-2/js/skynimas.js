@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 })
 
-const harvestOne = () => {
+const skintiVisusVienoAgurko = () => {
     const darzoves = document.querySelectorAll('.items');
     darzoves.forEach(darzove => {
         const btn = darzove.querySelector('.skinti-visus');
@@ -44,7 +44,7 @@ const harvestOne = () => {
     })
 }
 
-const harvest = () => {
+const skinti = () => {
     const darzoves = document.querySelectorAll('.items');
     darzoves.forEach(darzove => {
         const btn = darzove.querySelector('.skinti');

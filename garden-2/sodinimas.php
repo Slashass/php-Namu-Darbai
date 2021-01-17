@@ -19,7 +19,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
     // Listo setinimas --------------------------------------
     if (isset($rawData['list'])) {
         ob_start();
-        include __DIR__ . '/list.php';
+        include __DIR__ . '/list-sodinimas.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];
@@ -56,7 +56,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
             // App::redirect('sodinimas');
         }
         ob_start();
-        include __DIR__ . '/list.php';
+        include __DIR__ . '/list-sodinimas.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];
@@ -92,7 +92,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
             $storage->addNewPaprika($paprikaObj);
         }
         ob_start();
-        include __DIR__ . '/list.php';
+        include __DIR__ . '/list-sodinimas.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];
@@ -107,7 +107,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
         $storage->remove($rawData['id']);
 
         ob_start();
-        include __DIR__ . '/list.php';
+        include __DIR__ . '/list-sodinimas.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];

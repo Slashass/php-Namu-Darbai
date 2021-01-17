@@ -7,7 +7,7 @@
             <p> +<?= $kiekis = $darzove->kiekAugti() ?></p>
             <input type="hidden" name="kiekis[<?= $darzove->id ?>]" value="<?= $kiekis ?>">
         </div>
-    <?php else : ?>
+    <?php elseif ($darzove->name == 'Paprika') : ?>
         <div class="items">
             <img src="img/paprika-<?= $darzove->imgPath ?>.jpg" alt="Agurko nuotrauka">
             <h2>Paprikos Nr. :<?= $darzove->id ?></h2>

@@ -1,4 +1,4 @@
-const buttonAuginimas = document.querySelector('.auginti');
+const buttonAuginimas = document.querySelector('#auginti');
 const list = document.querySelector('#list');
 const errorMsg = document.querySelector('#error');
 
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             list.innerHTML = response.data.list;
         })
         .catch(function (error) {
-            console.log(error.response.data.msg);
+            console.log(error);
             errorMsg.innerHTML = error.response.data.msg;
         });
 })

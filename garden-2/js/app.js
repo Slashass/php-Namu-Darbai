@@ -62,7 +62,7 @@ buttonCucumber.addEventListener('click', () => {
             console.log(error);
             // asd
             // console.log(error.response.data.msg);
-            // errorMsg.innerHTML = error.response.data.msg;
+            errorMsg.innerHTML = error.response.data.msg;
         });
 });
 buttonPeper.addEventListener('click', () => {

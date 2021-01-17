@@ -21,9 +21,10 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
         http_response_code(200);
         echo $json;
         die;
+        // Skinti nurodyta kieki -------------------------------
     } elseif (isset($rawData['skinti'])) {
         $kiekis = (int) $rawData['kiek-skinti'];
-        $store->harvest($rawData['id'], $kiekis);
+        $storage->skinti($rawData['id'], $kiekis);
 
         if ($kiekis <= 0) {
             if (0 == $kiekis) $error = 0;
@@ -50,8 +51,9 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
         http_response_code(200);
         echo $json;
         die;
+        // Skinti visus vienos darzoves ------------------------
     } elseif (isset($rawData['skinti-visus'])) {
-        $store->harvestOne($rawData['id']);
+        $storage->skintiVisusVienoAgurko($rawData['id']);
 
         ob_start();
         include __DIR__ . '/list-skynimas.php';
@@ -63,8 +65,9 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
         http_response_code(200);
         echo $json;
         die;
+        // Nuskinti visas darzoves -----------------------------
     } elseif (isset($rawData['nuskinti-viska'])) {
-        $store->harvestAll();
+        $storage->nuskintiVisus();
 
         ob_start();
         include __DIR__ . '/list-skynimas.php';
@@ -89,9 +92,9 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skynimas</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" defer integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
-    <script src="http://localhost/1stlesson/folder/garden/js/skynimas.js" defer></script>
+    <script src="http://localhost/1stlesson/folder/garden-2/js/skynimas.js" defer></script>
     <script>
-        const apiUrl = 'http://localhost/1stlesson/folder/garden/auginimas';
+        const apiUrl = 'http://localhost/1stlesson/folder/garden-2/skynimas';
     </script>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
