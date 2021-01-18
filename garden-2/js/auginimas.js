@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
         list: 1,
     })
         .then(function (response) {
-            console.log(response);
-            console.log(response.data);
+            // console.log(response);
+            // console.log(response.data);
             list.innerHTML = response.data.list;
         })
         .catch(function (error) {
-            console.log(error);
+            // console.log(error);
             errorMsg.innerHTML = error.response.data.msg;
         });
 })
@@ -22,13 +22,13 @@ buttonAuginimas.addEventListener('click', () => {
         'auginti': 1
     })
         .then(function (response) {
-            console.log(response);
-            console.log(response.data);
+            // console.log(response);
+            // console.log(response.data);
             list.innerHTML = response.data.list;
         })
         .catch(function (error) {
-            console.log(error);
-            console.log(error.response.data.msg);
+            // console.log(error);
+            // console.log(error.response.data.msg);
             errorMsg.innerHTML = error.response.data.msg;
         });
 });

@@ -9,12 +9,12 @@
             <?php else : ?>
                 <h2>Agurkas Nr. :<?= $darzove->id ?></h2>
                 <p class="galimaSkinti">Galima skinti: <?= $darzove->count ?></p>
-                <input class="kiek" type="number" name="kiek">
-                <button class="skinti" type="submit" name="skinti" value="<?= $darzove->id ?>">Skinti</button>
-                <button class="skinti-visus" type="submit" name="skinti-visus" value="<?= $darzove->id ?>">Skinti visus</button>
+                <input class="kiek" type="number" name="kiek" id="cucumber">
+                <button class="skinti" type="button" name="skinti" value="<?= $darzove->id ?>" id="cucumber">Skinti</button>
+                <button class="skinti-visus" type="button" name="skinti-visus" value="<?= $darzove->id ?>">Skinti visus</button>
             <?php endif ?>
         </div>
-    <?php else : ?>
+    <?php elseif ($darzove->name == 'Paprika') : ?>
         <div class="items">
             <img src="./img/paprika-<?= $darzove->imgPath ?>.jpg" alt="Paprikos nuotrauka">
             <?php if ($darzove->count == 0) : ?>
@@ -24,9 +24,9 @@
             <?php else : ?>
                 <h2>Paprikos Nr. :<?= $darzove->id ?></h2>
                 <p class="galimaSkinti">Galima skinti: <?= $darzove->count ?></p>
-                <input class="kiek" type="number" name="kiek">
-                <button class="skinti" type="submit" name="skinti" value="<?= $darzove->id ?>">Skinti</button>
-                <button class="skinti-visus" type="submit" name="skinti-visus" value="<?= $darzove->id ?>">Skinti visus</button>
+                <input class="kiek" type="number" name="kiek" id="peper">
+                <button class="skinti" type="button" name="skinti" value="<?= $darzove->id ?>" id="peper">Skinti</button>
+                <button class="skinti-visus" type="button" name="skinti-visus" value="<?= $darzove->id ?>">Skinti visus</button>
             <?php endif ?>
         </div>
     <?php endif ?>

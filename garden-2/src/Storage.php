@@ -2,7 +2,6 @@
 
 namespace Main;
 
-use Main\App;
 use Cucumber\Agurkas;
 use Peper\Paprika;
 
@@ -84,7 +83,8 @@ class Storage
     {
         foreach ($this->data['darzoves'] as $index => $darzove) {
             $darzove = unserialize($darzove);
-            $darzove->augintiDarzove($_POST['kiekis'][$darzove->id]);
+            $darzove->augintiDarzove($darzove->kiekAugti);
+            $darzove->kiekAugti();
             self::save($darzove, $index);
         }
     }

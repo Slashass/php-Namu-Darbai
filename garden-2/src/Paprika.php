@@ -6,7 +6,7 @@ use Vegetable\Darzove;
 
 class Paprika extends Darzove
 {
-    private $count, $id, $imgPath, $name;
+    private $count, $id, $imgPath, $name, $kiekAugti, $price;
 
     public function __construct($id)
     {
@@ -14,6 +14,8 @@ class Paprika extends Darzove
         $this->imgPath = rand(1, 6);
         $this->count = 0;
         $this->name = 'Paprika';
+        $this->kiekAugti = rand(1, 3);
+        $this->price = 0.09;
     }
 
     public function __get($propertyName)
@@ -28,6 +30,7 @@ class Paprika extends Darzove
 
     public function kiekAugti()
     {
-        return rand(1, 3);
+        $this->kiekAugti = rand(1, 3);
+        return $this->kiekAugti;
     }
 }

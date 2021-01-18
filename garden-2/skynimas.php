@@ -112,7 +112,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
     <div id="error"></div>
     <form>
         <div id="list"></div>
-        <button class="nuskinti-viska" type="submit" name="nuskinti-viska">Nuskinti visus agurkus</button>
+        <button class="nuskinti-viska" type="submit" name="nuskinti-viska" id="nuskintiViska">Nuskinti visus agurkus</button>
     </form>
 </body>
 

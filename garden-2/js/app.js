@@ -59,7 +59,7 @@ buttonCucumber.addEventListener('click', () => {
             addNewList();
         })
         .catch(function (error) {
-            console.log(error);
+            // console.log(error);
             // asd
             // console.log(error.response.data.msg);
             errorMsg.innerHTML = error.response.data.msg;
@@ -73,13 +73,13 @@ buttonPeper.addEventListener('click', () => {
         'peper': 1
     })
         .then(function (response) {
-            console.log(response);
+            // console.log(response);
             list.innerHTML = response.data.list;
             errorMsg.innerHTML = '';
             addNewList();
         })
         .catch(function (error) {
-            console.log(error.response.data);
+            // console.log(error.response.data);
             // console.log(error.response.data.msg);
             errorMsg.innerHTML = error.response.data.msg;
         });

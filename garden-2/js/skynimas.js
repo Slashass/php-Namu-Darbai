@@ -1,4 +1,4 @@
-const buttonSkinti = document.querySelector('.nuimti-viska');
+const buttonSkinti = document.querySelector('#nuskintiViska');
 const list = document.querySelector('#list');
 const errorMsg = document.querySelector('#error');
 
@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
         list: 1,
     })
         .then(function (response) {
-            console.log(response);
+            // console.log(response);
             list.innerHTML = response.data.list;
             skinti();
             skintiVisusVienoAgurko();
         })
         .catch(function (error) {
-            console.log(error);
+            // console.log(error);
             errorMsg.innerHTML = error.response.data.msg;
         });
 })
@@ -55,12 +55,12 @@ const skinti = () => {
 
                 axios.post(apiUrl, {
                     id: id,
-                    'kiek-skinti': count,
+                    'kiek': count,
                     'skinti': 1
                 })
                     .then(function (response) {
                         console.log(response);
-                        listPlace.innerHTML = response.data.list;
+                        list.innerHTML = response.data.list;
                         skinti();
                         skintiVisusVienoAgurko();
                     })
@@ -70,19 +70,18 @@ const skinti = () => {
                     });
             });
         }
-    })
+    });
 }
 
 buttonSkinti.addEventListener('click', () => {
     axios.post(apiUrl, {
-        'nuimti-viska': 1
+        'nuskinti-viska': 1
     })
         .then(function (response) {
             console.log(response);
-            listPlace.innerHTML = response.data.list;
-            skinti();
-            skintiVisusVienoAgurko();
-            nuskitiVisus();
+            list.innerHTML = response.data.list;
+            // skinti();
+            // skintiVisusVienoAgurko();
         })
         .catch(function (error) {
             console.log(error);

@@ -7,7 +7,7 @@ use Vegetable\Darzove;
 class Agurkas extends Darzove
 {
 
-    private $id, $count, $imgPath, $name;
+    private $id, $count, $imgPath, $name, $kiekAugti, $price;
 
     // public $propertyName;
     public function __construct($id)
@@ -16,9 +16,8 @@ class Agurkas extends Darzove
         $this->imgPath = rand(1, 6);
         $this->count = 0;
         $this->name = 'Agurkas';
-
-        // $agurkoObj->id = $_SESSION['agurku ID'] + 1;
-        // $agurkoObj->count = 0;
+        $this->kiekAugti = rand(2, 9);
+        $this->price = 0.99;
     }
 
     public function __get($propertyName)
@@ -33,13 +32,7 @@ class Agurkas extends Darzove
 
     public function kiekAugti()
     {
-        return rand(2, 9);
+        $this->kiekAugti = rand(2, 9);
+        return $this->kiekAugti;
     }
-
-    // Visai nebutina
-    // public function __serialize() // <---- ivyksta kai objektas yra serializuojamas
-    // {
-
-    // }
-
 }
