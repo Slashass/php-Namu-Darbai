@@ -29,4 +29,20 @@ class App
         header('Location: ' . URL . $fileName);
         exit;
     }
+
+    public static function getRate($DATA)
+    {
+        $answer = $DATA->get();
+
+        if ($answer === false) {
+            $curl = curl_init();
+            curl_setopt($curl, CURLOPT_URL, 'https://api.exchangeratesapi.io/latest');
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            $answer = curl_exec($curl);
+            $answer = json_decode($answer);
+            $DATA->set($answer);
+        }
+        $rate = $answer->rates->USD;
+        return $rate;
+    }
 }

@@ -3,6 +3,7 @@ defined('DOOR_BELL') || exit('Nurodytas blogas URL');
 
 use Main\Storage;
 use Main\App;
+use Main\Catche;
 use Cucumber\Agurkas;
 use Peper\Paprika;
 
@@ -10,6 +11,8 @@ use Peper\Paprika;
 // _dc($_SESSION);
 
 $storage = new Storage('darzoves');
+$DATA = new Catche;
+$rate = App::getRate($DATA);
 
 if ('POST' == $_SERVER['REQUEST_METHOD']) {
     $rawData = file_get_contents("php://input");

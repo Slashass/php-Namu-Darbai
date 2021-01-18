@@ -15,7 +15,7 @@ class Paprika extends Darzove
         $this->count = 0;
         $this->name = 'Paprika';
         $this->kiekAugti = rand(1, 3);
-        $this->price = 0.09;
+        $this->price = 4;
     }
 
     public function __get($propertyName)

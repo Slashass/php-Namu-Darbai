@@ -17,7 +17,7 @@ class Agurkas extends Darzove
         $this->count = 0;
         $this->name = 'Agurkas';
         $this->kiekAugti = rand(2, 9);
-        $this->price = 0.99;
+        $this->price = 5;
     }
 
     public function __get($propertyName)
