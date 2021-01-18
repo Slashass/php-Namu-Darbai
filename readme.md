@@ -16,8 +16,8 @@ This repository is for educational porpuses only.
 6. Functions (Funkcijos)
 7. WEB (WEB mechanika)
 8. OOP basics (Garden)
-9. Axios/JS (Javascript)
-10. API (Distance)
+9. Axios/JS/JSON (Javascript)
+10. API (Distance, Foreign Exchange rates)
 
 <img width="550" alt="Capture" src="screenshot/screenshot.png">
 
