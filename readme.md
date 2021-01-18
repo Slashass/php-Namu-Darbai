@@ -19,6 +19,7 @@ This repository is for educational porpuses only.
 9. Axios/JS/JSON (Javascript)
 10. API (Distance, Foreign Exchange rates)
 11. MVC (Garden-2)
+12. Symfony (Garden-2)
 
 <img width="550" alt="Capture" src="screenshot/screenshot.png">
 
