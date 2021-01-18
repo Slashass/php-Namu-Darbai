@@ -15,9 +15,10 @@ This repository is for educational porpuses only.
 5. Array part 2 (Masyvai II)
 6. Functions (Funkcijos)
 7. WEB (WEB mechanika)
-8. OOP basics (Garden)
+8. OOP basics (Garden-2)
 9. Axios/JS/JSON (Javascript)
 10. API (Distance, Foreign Exchange rates)
+11. MVC (Garden-2)
 
 <img width="550" alt="Capture" src="screenshot/screenshot.png">
 
