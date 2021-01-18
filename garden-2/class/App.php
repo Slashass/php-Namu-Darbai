@@ -3,9 +3,18 @@
 namespace Main;
 
 use Main\Controllers\SodinimasController;
+use Symfony\Component\HttpFoundation\Request;
 
 class App
 {
+    public static $request;
+
+    public static function start()
+    {
+        self::$request = Request::createFromGlobals();
+
+        return self::router();
+    }
 
     public static function router()
     {

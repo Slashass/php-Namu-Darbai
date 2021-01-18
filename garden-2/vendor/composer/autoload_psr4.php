@@ -7,6 +7,9 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Vegetable\\' => array($baseDir . '/class'),
+    'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
+    'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
+    'Symfony\\Component\\HttpFoundation\\' => array($vendorDir . '/symfony/http-foundation'),
     'Peper\\' => array($baseDir . '/class'),
     'Main\\Controllers\\' => array($baseDir . '/class/controllers'),
     'Main\\' => array($baseDir . '/class'),

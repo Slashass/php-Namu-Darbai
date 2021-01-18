@@ -17,5 +17,7 @@
             "Main\\Controllers\\": "class/controllers"
         }
     },
-    "require": {}
+    "require": {
+        "symfony/http-foundation": "^5.2"
+    }
 }

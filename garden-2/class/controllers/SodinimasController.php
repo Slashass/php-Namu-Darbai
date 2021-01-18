@@ -8,6 +8,8 @@ use Main\App;
 use Main\Catche;
 use Cucumber\Agurkas;
 use Peper\Paprika;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class SodinimasController
 {
@@ -19,7 +21,7 @@ class SodinimasController
 
         if ('POST' === $_SERVER['REQUEST_METHOD']) {
             $this->storage = new Storage('darzoves');
-            $this->rawData = file_get_contents("php://input");
+            $this->rawData = App::$request->getContent(); // SYMFONY
             $this->rawData = json_decode($this->rawData, 1);
             $this->DATA = new Catche;
             $this->rate = App::getRate($this->DATA);
@@ -29,7 +31,25 @@ class SodinimasController
     // sodinimo puslapio rodymo scenarijus ------------------
     public function index()
     {
+        // atsakymas narsyklei ------------------------------
+        $response = new Response(
+            'Content',
+            200,
+            ['content-type' => 'text/html']
+        );
+
+        ob_start();
         include DIR . '/views/index.php';
+        $output = ob_get_contents();
+        ob_end_clean();
+
+        // setinam contenta ---------------------------------
+        $response->setContent($output);
+        // paruosiam ----------------------------------------
+        $response->prepare(App::$request);
+
+        // grazinam response tam kas ji iskviete ------------
+        return $response;
     }
 
 
@@ -43,12 +63,21 @@ class SodinimasController
         include DIR . '/views/list-sodinimas.php';
         $output = ob_get_contents();
         ob_end_clean();
+
         $json = ['list' => $output];
-        $json = json_encode($json);
-        header('Content-type: application/json');
-        http_response_code(200);
-        echo $json;
-        exit;
+
+        // atsakymas narsyklei ------------------------------
+        $response = new JsonResponse($json);
+
+        $response->prepare(App::$request);
+
+        return $response;
+
+        // $json = json_encode($json);
+        // header('Content-type: application/json');
+        // http_response_code(200);
+        // echo $json;
+        // exit;
     }
 
 

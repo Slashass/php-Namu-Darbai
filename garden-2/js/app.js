@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             addNewList();
         })
         .catch(function (error) {
-            console.log(error.response.data.msg);
+            // console.log(error.response.data.msg);
             errorMsg.innerHTML = error.response.data.msg;
         });
 })
@@ -28,13 +28,13 @@ const addNewList = () => {
                 id: id,
             })
                 .then(function (response) {
-                    console.log(response.data);
+                    // console.log(response.data);
                     list.innerHTML = response.data.list;
                     errorMsg.innerHTML = '';
                     addNewList();
                 })
                 .catch(function (error) {
-                    console.log(error.response.data.msg);
+                    // console.log(error.response.data.msg);
                     errorMsg.innerHTML = error.response.data.msg;
                 });
         });
