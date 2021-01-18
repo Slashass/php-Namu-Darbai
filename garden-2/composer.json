@@ -9,11 +9,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Main\\": "src",
-            "Cucumber\\": "src",
-            "Peper\\": "src",
-            "Vegetable\\": "src",
-            "Greenhouse\\": "src"
+            "Main\\": "class",
+            "Cucumber\\": "class",
+            "Peper\\": "class",
+            "Vegetable\\": "class",
+            "Greenhouse\\": "class",
+            "Main\\Controllers\\": "class/controllers"
         }
     },
     "require": {}

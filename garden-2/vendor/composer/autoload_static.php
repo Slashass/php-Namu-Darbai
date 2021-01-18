@@ -17,6 +17,7 @@ class ComposerStaticInitd08c29a3f50a6d748e4e59a2febe7b43
         ),
         'M' => 
         array (
+            'Main\\Controllers\\' => 17,
             'Main\\' => 5,
         ),
         'G' => 
@@ -32,23 +33,27 @@ class ComposerStaticInitd08c29a3f50a6d748e4e59a2febe7b43
     public static $prefixDirsPsr4 = array (
         'Vegetable\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/class',
         ),
         'Peper\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/class',
+        ),
+        'Main\\Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/class/controllers',
         ),
         'Main\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/class',
         ),
         'Greenhouse\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/class',
         ),
         'Cucumber\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/class',
         ),
     );
 

@@ -12,7 +12,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
     // Listo setinimas --------------------------------------
     if (isset($rawData['list'])) {
         ob_start();
-        include __DIR__ . '/list-augimas.php';
+        include __DIR__ . '/views/list-augimas.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];
@@ -26,7 +26,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
         $storage->grow();
 
         ob_start();
-        include __DIR__ . '/list-augimas.php';
+        include __DIR__ . '/views/list-augimas.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];

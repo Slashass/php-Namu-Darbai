@@ -4,9 +4,7 @@ const list = document.querySelector('#list');
 const errorMsg = document.querySelector('#error');
 
 document.addEventListener('DOMContentLoaded', () => {
-    axios.post(apiUrl, {
-        list: 1,
-    })
+    axios.post(apiUrl + '/list', {})
         .then(function (response) {
             // console.log(response.data);
             list.innerHTML = response.data.list;
@@ -26,9 +24,8 @@ const addNewList = () => {
         // console.log(darzoves);
         darzoves.querySelector('[type=button]').addEventListener('click', () => {
             const id = darzoves.querySelector('[name=israuti]').value;
-            axios.post(apiUrl, {
+            axios.post(apiUrl + '/remove', {
                 id: id,
-                israuti: 1
             })
                 .then(function (response) {
                     console.log(response.data);
@@ -48,9 +45,8 @@ const addNewList = () => {
 buttonCucumber.addEventListener('click', () => {
     const count = document.querySelector('[name=kiekisC]').value;
 
-    axios.post(apiUrl, {
+    axios.post(apiUrl + '/sodintiAgurka', {
         'kiekis': count,
-        'cucumber': 1
     })
         .then(function (response) {
             // console.log(response);
@@ -68,9 +64,8 @@ buttonCucumber.addEventListener('click', () => {
 buttonPeper.addEventListener('click', () => {
     const count = document.querySelector('[name=kiekisP]').value;
 
-    axios.post(apiUrl, {
+    axios.post(apiUrl + '/sodintiPaprika', {
         'kiekis': count,
-        'peper': 1
     })
         .then(function (response) {
             // console.log(response);

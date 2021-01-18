@@ -12,7 +12,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
 
     if (isset($rawData['list'])) {
         ob_start();
-        include __DIR__ . '/list-skynimas.php';
+        include __DIR__ . '/views/list-skynimas.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];
@@ -42,7 +42,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
         }
 
         ob_start();
-        include __DIR__ . '/list-skynimas.php';
+        include __DIR__ . '/views/list-skynimas.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];
@@ -56,7 +56,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
         $storage->skintiVisusVienoAgurko($rawData['id']);
 
         ob_start();
-        include __DIR__ . '/list-skynimas.php';
+        include __DIR__ . '/views/list-skynimas.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];
@@ -70,7 +70,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
         $storage->nuskintiVisus();
 
         ob_start();
-        include __DIR__ . '/list-skynimas.php';
+        include __DIR__ . '/views/list-skynimas.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];

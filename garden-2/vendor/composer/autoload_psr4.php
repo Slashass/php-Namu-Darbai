@@ -6,9 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Vegetable\\' => array($baseDir . '/src'),
-    'Peper\\' => array($baseDir . '/src'),
-    'Main\\' => array($baseDir . '/src'),
-    'Greenhouse\\' => array($baseDir . '/src'),
-    'Cucumber\\' => array($baseDir . '/src'),
+    'Vegetable\\' => array($baseDir . '/class'),
+    'Peper\\' => array($baseDir . '/class'),
+    'Main\\Controllers\\' => array($baseDir . '/class/controllers'),
+    'Main\\' => array($baseDir . '/class'),
+    'Greenhouse\\' => array($baseDir . '/class'),
+    'Cucumber\\' => array($baseDir . '/class'),
 );
