@@ -30,13 +30,13 @@ const skintiVisusVienoAgurko = () => {
                     'skinti-visus': 1
                 })
                     .then(function (response) {
-                        console.log(response);
+                        // console.log(response);
                         list.innerHTML = response.data.list;
                         skinti();
                         skintiVisusVienoAgurko();
                     })
                     .catch(function (error) {
-                        console.log(error);
+                        // console.log(error);
                         errorMsg.innerHTML = error.response.data.msg;
                     });
             });
@@ -55,17 +55,17 @@ const skinti = () => {
 
                 axios.post(apiUrl, {
                     id: id,
-                    'kiek': count,
+                    'kiek-skinti': count,
                     'skinti': 1
                 })
                     .then(function (response) {
-                        console.log(response);
+                        // console.log(response);
                         list.innerHTML = response.data.list;
                         skinti();
                         skintiVisusVienoAgurko();
                     })
                     .catch(function (error) {
-                        console.log(error);
+                        // console.log(error);
                         errorMsg.innerHTML = error.response.data.msg;
                     });
             });
@@ -78,13 +78,13 @@ buttonSkinti.addEventListener('click', () => {
         'nuskinti-viska': 1
     })
         .then(function (response) {
-            console.log(response);
+            // console.log(response);
             list.innerHTML = response.data.list;
-            // skinti();
-            // skintiVisusVienoAgurko();
+            skinti();
+            skintiVisusVienoAgurko();
         })
         .catch(function (error) {
-            console.log(error);
+            // console.log(error);
             errorMsg.innerHTML = error.response.data.msg;
         });
 });

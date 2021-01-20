@@ -89,33 +89,23 @@ class Storage
         }
     }
 
-    public function skinti()
+    public function skinti($id, $kiek)
     {
         foreach ($this->data['darzoves'] as $index => $darzove) {
             $darzove = unserialize($darzove);
-            if ($_POST['skinti'] == $darzove->id) {
-
-                $kiek = (int) $_POST['kiek'];
-
-                if ($kiek < 0) {
-                    $_SESSION['err'] = 1;
-                    break;
-                }
-                if ($kiek > $darzove->count) {
-                    $_SESSION['err'] = 2;
-                    break;
-                }
-                $darzove->nuskintiDarzove($kiek);
+            if ($darzove->id == $id) {
+                if ($darzove->count < $kiek) break;
+                $darzove->count -= $kiek;
                 self::save($darzove, $index);
             }
         }
     }
 
-    public function skintiVisusVienoAgurko()
+    public function skintiVisusVienoAgurko($id)
     {
         foreach ($this->data['darzoves'] as $index => $darzove) {
             $darzove = unserialize($darzove);
-            if ($_POST['skinti-visus'] == $darzove->id) {
+            if ($darzove->id == $id) {
                 $darzove->nuskintiVisus();
                 self::save($darzove, $index);
             }

@@ -27,7 +27,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
         $storage->skinti($rawData['id'], $kiekis);
 
         if ($kiekis <= 0) {
-            if (0 == $kiekis) $error = 0;
+            if (0 == $kiekis) $error = 4;
             elseif (0 > $kiekis) $error = 1;
             ob_start();
             include __DIR__ . '/err/error.php';
@@ -112,7 +112,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
     <div id="error"></div>
     <form>
         <div id="list"></div>
-        <button class="nuskinti-viska" type="submit" name="nuskinti-viska" id="nuskintiViska">Nuskinti visus agurkus</button>
+        <button class="nuskinti-viska" type="button" name="nuskinti-viska" id="nuskintiViska">Nuskinti visus agurkus</button>
     </form>
 </body>
 

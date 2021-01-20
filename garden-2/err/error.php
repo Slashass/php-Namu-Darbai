@@ -8,5 +8,8 @@
     <?php if (3 == $error) : ?>
         <h2 style="color:red;">Per daug sodinate, pone</h2>
     <?php endif ?>
+    <?php if (4 == $error) : ?>
+        <h2 style="color:red;">Neivestas kiekis</h2>
+    <?php endif ?>
     <?php unset($error) ?>
 <?php endif ?>
