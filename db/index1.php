@@ -15,35 +15,20 @@ $options = [
 
 $pdo = new PDO($dsn, $user, $pass, $options);
 
-// RASYMAS --------------------------------------------------------
-
-$sql = "INSERT INTO `products` (`type`, `name`, `price`)
-VALUES (1, 'Agurkas', 0.78);";
-
-$pdo->query($sql);
-
-// REDAGAVIMAS ----------------------------------------------------
-
-$sql = "UPDATE products
-SET price=0.36
-WHERE `name`='Agurkas';";
-
-$pdo->query($sql);
-
-// TRYNIMAS -------------------------------------------------------
-
-// $sql = "DELETE FROM products
-// WHERE `name` = 'Agurkas';";
-
-// $pdo->query($sql);
-
-
 // SKAITYMAS ------------------------------------------------------
 
 // sql kalba pasirenkam ka is kur imam ----------------------------
-$sql = "SELECT `id`, `type`, `name`, `price` FROM `products`
-WHERE `type` <> 1
-ORDER BY price DESC
+$sql = "SELECT 
+customers.id as customer_id, 
+customers.name as customer_name,
+surname,
+products.id as product_id,
+`type`,
+products.name as vegetable 
+FROM customers
+LEFT JOIN products
+ON customers.id = products.customer_id
+ORDER BY customers.name 
 ;";
 
 $stmt = $pdo->query($sql); // statement'as ------------------------
