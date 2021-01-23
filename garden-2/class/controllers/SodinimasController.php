@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class SodinimasController
 {
 
-    private $store, $rawData, $DATA, $rate;
+    private $storage, $rawData, $DATA, $rate;
 
     public function __construct()
     {
@@ -39,7 +39,7 @@ class SodinimasController
         );
 
         ob_start();
-        include DIR . '/views/index.php';
+        include DIR . '/views/sodinimas/index.php';
         $output = ob_get_contents();
         ob_end_clean();
 
@@ -60,7 +60,7 @@ class SodinimasController
         // kreipiames i views ir perduodam kintamuosius -----
         $storage = new Storage('darzoves');
         ob_start();
-        include DIR . '/views/list-sodinimas.php';
+        include DIR . '/views/sodinimas/list-sodinimas.php';
         $output = ob_get_contents();
         ob_end_clean();
 
@@ -92,7 +92,7 @@ class SodinimasController
             if (0 > $kiekis) $error = 1;
             elseif (4 < $kiekis) $error = 2;
             ob_start();
-            include DIR . '/err/error.php';
+            include DIR . '/views/sodinimas/error.php';
             $output = ob_get_contents();
             ob_end_clean();
             $json = ['msg' => $output];
@@ -100,7 +100,7 @@ class SodinimasController
             header('Content-type: application/json');
             http_response_code(400);
             echo $json;
-            exit;
+            die;
         }
 
         foreach (range(1, $kiekis) as $_) {
@@ -110,15 +110,13 @@ class SodinimasController
         }
         ob_start();
         $storage =  $this->storage;
-        include DIR . '/views/list-sodinimas.php';
+        include DIR . '/views/sodinimas/list-sodinimas.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];
-        $json = json_encode($json);
-        header('Content-type: application/json');
-        http_response_code(201);
-        echo $json;
-        exit;
+        $response = new JsonResponse($json);
+        $response->prepare(App::$request);
+        return $response;
     }
 
     // Paprikos sodinimas ----------------------------------
@@ -132,7 +130,7 @@ class SodinimasController
             if (0 > $kiekis) $error = 1;
             elseif (4 < $kiekis) $error = 2;
             ob_start();
-            include DIR . '/err/error.php';
+            include DIR . '/views/sodinimas/error.php';
             $output = ob_get_contents();
             ob_end_clean();
             $json = ['msg' => $output];
@@ -140,7 +138,7 @@ class SodinimasController
             header('Content-type: application/json');
             http_response_code(400);
             echo $json;
-            exit;
+            die;
         }
 
         foreach (range(1, $kiekis) as $_) {
@@ -149,15 +147,13 @@ class SodinimasController
         }
         ob_start();
         $storage = $this->storage;
-        include DIR . '/views/list-sodinimas.php';
+        include DIR . '/views/sodinimas/list-sodinimas.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];
-        $json = json_encode($json);
-        header('Content-type: application/json');
-        http_response_code(201);
-        echo $json;
-        exit;
+        $response = new JsonResponse($json);
+        $response->prepare(App::$request);
+        return $response;
     }
 
     // Isrovimo scenarijus ---------------------------------
@@ -168,14 +164,12 @@ class SodinimasController
 
         ob_start();
         $storage = $this->storage;
-        include DIR . '/views/list-sodinimas.php';
+        include DIR . '/views/sodinimas/list-sodinimas.php';
         $output = ob_get_contents();
         ob_end_clean();
         $json = ['list' => $output];
-        $json = json_encode($json);
-        header('Content-type: application/json');
-        http_response_code(200);
-        echo $json;
-        exit;
+        $response = new JsonResponse($json);
+        $response->prepare(App::$request);
+        return $response;
     }
 }

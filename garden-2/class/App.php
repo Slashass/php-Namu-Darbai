@@ -2,6 +2,8 @@
 
 namespace Main;
 
+use Main\Controllers\AuginimasController;
+use Main\Controllers\SkynimasController;
 use Main\Controllers\SodinimasController;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -46,9 +48,31 @@ class App
             // TODO: Prideti galima 404
 
         } elseif ('auginimas' == $uri[0]) {
-            include DIR . '/auginimas.php';
+            if (!isset($uri[1])) {
+                return (new AuginimasController)->index();
+            }
+            if ('list' == $uri[1]) {
+                return (new AuginimasController)->list();
+            }
+            if ('grow' == $uri[1]) {
+                return (new AuginimasController)->grow();
+            }
         } elseif ('skynimas' == $uri[0]) {
-            include DIR . '/skynimas.php';
+            if (!isset($uri[1])) {
+                return (new SkynimasController)->index();
+            }
+            if ('list' == $uri[1]) {
+                return (new SkynimasController)->list();
+            }
+            if ('skinti' == $uri[1]) {
+                return (new SkynimasController)->skinti();
+            }
+            if ('skintiVisus' == $uri[1]) {
+                return (new SkynimasController)->skintiVisus();
+            }
+            if ('nuskintiVisus' == $uri[1]) {
+                return (new SkynimasController)->nuskintiVisus();
+            }
         }
     }
 

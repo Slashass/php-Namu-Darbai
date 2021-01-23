@@ -3,9 +3,7 @@ const list = document.querySelector('#list');
 const errorMsg = document.querySelector('#error');
 
 document.addEventListener('DOMContentLoaded', () => {
-    axios.post(apiUrl, {
-        list: 1,
-    })
+    axios.post(apiUrl + '/list', {})
         .then(function (response) {
             // console.log(response);
             // console.log(response.data);
@@ -18,9 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 buttonAuginimas.addEventListener('click', () => {
-    axios.post(apiUrl, {
-        'auginti': 1
-    })
+    axios.post(apiUrl + '/grow', {})
         .then(function (response) {
             // console.log(response);
             // console.log(response.data);
