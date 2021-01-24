@@ -1,0 +1,7 @@
+body,
+body * {
+margin: 20px;
+vertical-align: top;
+box-sizing: border-box;
+font-family: 'Montserrat', sans-serif;
+}

@@ -1,0 +1,23 @@
+{
+    "name": "cmazv/garden",
+    "description": "Sodas",
+    "authors": [
+        {
+            "name": "Mazvydas",
+            "email": "cm@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Main\\": "class",
+            "Cucumber\\": "class",
+            "Peper\\": "class",
+            "Vegetable\\": "class",
+            "Greenhouse\\": "class",
+            "Main\\Controllers\\": "class/controllers"
+        }
+    },
+    "require": {
+        "symfony/http-foundation": "^5.2"
+    }
+}
