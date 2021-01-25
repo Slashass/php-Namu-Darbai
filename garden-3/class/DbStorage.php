@@ -34,7 +34,7 @@ class DbStorage implements Store
         // SKAITYMAS viskas is darzoviu
         $sql = "SELECT * FROM darzove
         ;";
-        $stmt = $this->pdo->query($sql); // NESAUGU
+        $stmt = $this->pdo->query($sql); // SAUGI nes SELECT * FROM
 
         $masyvas = [];
         while ($row = $stmt->fetch()) {
@@ -63,6 +63,8 @@ class DbStorage implements Store
     {
         $sql = "INSERT INTO darzove (`count`, `type`)
         VALUES ('.$agurkasObj->count.', 'agurkas');";
+        // $stmt = $this->pdo->prepare($sql);
+        // $stmt->execute([$agurkasObj]);
         $this->pdo->query($sql); // NESAUGU!!!
     }
 
@@ -70,13 +72,18 @@ class DbStorage implements Store
     {
         $sql = "INSERT INTO darzove (`count`, `type`)
         VALUES ('.$paprikaObj->count.', 'paprika');";
+        // $stmt = $this->pdo->prepare($sql);
+        // $stmt->execute([$paprikaObj]);
         $this->pdo->query($sql); // NESAUGU!!!
     }
 
     public function remove($id)
     {
-        $sql = "DELETE FROM darzove
-        WHERE id='" . $id . "';";
-        $this->pdo->query($sql); // NESAUGU!!!
+        $sql = "DELETE FROM darzove 
+        WHERE id = ? ;";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+
+        // $this->pdo->query($sql); // NESAUGU!!!
     }
 }
